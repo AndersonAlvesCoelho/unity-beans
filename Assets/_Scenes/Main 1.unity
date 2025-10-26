@@ -777,8 +777,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1001 &1191932019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -868,7 +866,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
->>>>>>> 565916a7b4d487b91054517944c091504ce58fc2
 --- !u!1001 &1376419403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1212,8 +1209,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 395258539431612298, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.34
+      propertyPath: m_LocalPosition.x
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 1003131125637317951, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: m_Size.x
@@ -1224,24 +1221,46 @@ PrefabInstance:
       value: 4.69
       objectReference: {fileID: 0}
     - target: {fileID: 3346069725584948296, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
-      propertyPath: chaseSpeed
-      value: 5
+      propertyPath: attackRange
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 3346069725584948296, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
-      propertyPath: stoppingDistance
-      value: 5
+    - target: {fileID: 4548043107817830354, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548043107817830354, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548043107817830354, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701525800778322631, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701525800778322631, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396668733939259826, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_Size.x
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5396668733939259826, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: m_Size.y
-      value: 3.6
+      value: 3.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396668733939259826, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
+      propertyPath: m_Center.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8165386953237551777, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: m_Name
       value: N1_EnemyRrangerDragon
       objectReference: {fileID: 0}
     - target: {fileID: 8427931296621191333, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
-<<<<<<< HEAD
-=======
       propertyPath: m_LocalScale.x
       value: 2.94
       objectReference: {fileID: 0}
@@ -1254,7 +1273,6 @@ PrefabInstance:
       value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 8427931296621191333, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
->>>>>>> 565916a7b4d487b91054517944c091504ce58fc2
       propertyPath: m_LocalPosition.x
       value: -37.1
       objectReference: {fileID: 0}
@@ -3050,5 +3068,6 @@ SceneRoots:
   - {fileID: 1376419403}
   - {fileID: 729180829}
   - {fileID: 1877057422}
+  - {fileID: 1191932019}
   - {fileID: 1071736836}
   - {fileID: 157664655}
