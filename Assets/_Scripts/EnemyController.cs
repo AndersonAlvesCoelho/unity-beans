@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
     public float attackDamage = 2f;
     public float attackRate = 3f;
     public Transform attackPoint;
-    [Range(0.1f, 3f)] public float attackRange = 1f;
+    public float attackRange = 1f;
 
     [Header("Combate a Distância (Ranged)")]
     public GameObject projectilePrefab;
@@ -264,6 +264,10 @@ public class EnemyController : MonoBehaviour
 
         animator.SetTrigger("Attack"); // Para melee, animação de morder
         Collider[] hitPlayers = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayer);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
         foreach (Collider playerCollider in hitPlayers)
         {
             HealthSystem playerHealth = playerCollider.GetComponent<HealthSystem>();

@@ -160,7 +160,11 @@ public class HealthSystem : MonoBehaviour
         isDead = true;
         Debug.Log(gameObject.name + " morreu.");
 
-        // Animação de morrer se houver
+        bool isPlayer = TryGetComponent<PlayerController3D>(out var playerController);
+        bool isEnemy = TryGetComponent<EnemyController>(out var enemyController);
+
+        // Dispara a animação de morte se existir
+        bool hasDieTrigger = false;
         if (animator != null)
         {
             foreach (var p in animator.parameters)
@@ -168,45 +172,45 @@ public class HealthSystem : MonoBehaviour
                 if (p.name == "Die")
                 {
                     animator.SetTrigger("Die");
+                    hasDieTrigger = true;
                     break;
                 }
             }
         }
 
-        // Desativa controladores se existirem
-        if (TryGetComponent<PlayerController3D>(out var playerController)) playerController.enabled = false;
-        if (TryGetComponent<EnemyController>(out var enemyController)) enemyController.enabled = false;
+        // Desativa controladores de movimento/IA
+        if (isPlayer) playerController.enabled = false;
+        if (isEnemy) enemyController.enabled = false;
 
         // Para movimento
         if (rb != null) rb.linearVelocity = Vector3.zero;
 
-        // Piscar até sumir
-        if (spriteRenderer != null)
+        // Aguarda o tempo da animação de morte (ou 0.8s padrão)
+        float dieAnimDuration = 0.8f;
+        if (hasDieTrigger && animator != null)
         {
-            Color original = spriteRenderer.color;
-            float end = Time.time + disappearDelayAfterDeath;
-            bool visible = true;
-
-            while (Time.time < end)
-            {
-                // spriteRenderer.color = visible ? original : Color.red;   
-                visible = !visible;
-                yield return new WaitForSeconds(blinkInterval);
-            }
-
-            spriteRenderer.color = Color.grey;
-        }
-        else
-        {
-            yield return new WaitForSeconds(disappearDelayAfterDeath);
+            // tenta detectar automaticamente a duração
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            dieAnimDuration = stateInfo.length;
         }
 
-        // Desativa física/collider e o objeto
+        yield return new WaitForSeconds(dieAnimDuration);
+
+        // Congela no último frame da animação (impede voltar para Idle)
+         if (!isPlayer){
+            if (animator != null) animator.speed = 0f; // congela no último frame
+
+            yield return new WaitForSeconds(1f); // espera antes de sumir
+        }
+
+        // Desativa física e colisão
         if (rb != null) rb.isKinematic = true;
         if (charCollider != null) charCollider.enabled = false;
 
+        // Some da tela (ou destrói, se preferir)
         gameObject.SetActive(false);
     }
+
 
     // Getters auxiliares para outros scripts saberem o estado
     public bool IsDead() => isDead;
