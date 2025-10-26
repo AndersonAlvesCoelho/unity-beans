@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController3D
   moveSpeed: 10
   sprintForce: 25
-  sprintDuration: 0.3
+  sprintDuration: 5
   sprintCooldown: 1
   attackPoint: {fileID: 7896383429328099400}
   attackRange: 2.498

@@ -6,16 +6,16 @@ public class PlayerController3D : MonoBehaviour
 {
     [Header("Movimento")]
     public float moveSpeed = 5f;
-    public float sprintForce = 15f;
-    public float sprintDuration = 0.3f;
-    public float sprintCooldown = 1.0f;
+    public float sprintForce = 12f;
+    public float sprintDuration = 0.25f;
+    public float sprintCooldown = 1.2f;
 
     [Header("Combate")]
     public Transform attackPoint;
-    [Range(0.1f, 3f)] public float attackRange = 1f;
+    [Range(0.1f, 3f)] public float attackRange = 1.5f;
     public float attackDamage = 2.5f;
     public LayerMask enemyLayer;
-    public float attackAnimationDuration = 0.5f;
+    public float attackAnimationDuration = 0.4f;
 
     // Componentes
     private Rigidbody rb;

@@ -598,12 +598,29 @@ MonoBehaviour:
     numberOfEnemies: 3
     enemyPrefabs:
     - {fileID: 288707859}
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
     spawnInterval: 0.5
   timeBetweenWaves: 5
   initialSpawnDelay: 3
   mapCenter: {x: 0, y: 0}
   mapSize: {x: 40, y: 40}
   spawnEdgeMargin: 2
+  spawnHeightY: 0.5
 --- !u!4 &452722863
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775611680908863738, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: EnemyRranger
       objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: enemyType
@@ -1328,6 +1345,14 @@ PrefabInstance:
       propertyPath: attackRange
       value: 2.498
       objectReference: {fileID: 0}
+    - target: {fileID: 486660835685476563, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
+      propertyPath: sprintForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 486660835685476563, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
+      propertyPath: sprintDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3537570925694072693, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1367,7 +1392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113438936482358833, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17
+      value: -2.79
       objectReference: {fileID: 0}
     - target: {fileID: 113438936482358833, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1407,12 +1432,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775611680908863738, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: EnemyStationary
       objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 359435506}
+    - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
+      propertyPath: stoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 7

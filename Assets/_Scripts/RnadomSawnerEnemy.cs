@@ -1,209 +1,164 @@
-// RandomSpawnerEnemy.cs (Com Spawns Direcionais e Ondas - CORRIGIDO)
+// RandomSpawnerEnemy.cs (Com Spawns Direcionais, Ondas e Altura Y Configurável - SEM DUPLICATAS)
 
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Para usar Listas
+using System.Collections.Generic;
 
 public class RandomSpawnerEnemy : MonoBehaviour
 {
-    // --- Estrutura para definir cada Onda ---
     [System.Serializable]
     public class Wave
     {
         public string waveName = "Onda";
-        public int numberOfEnemies = 5;      // Quantos inimigos totais na onda
-        public GameObject[] enemyPrefabs;    // Tipos de inimigos permitidos nesta onda
-        public float spawnInterval = 1.0f;   // Tempo entre cada spawn DENTRO da onda
-        // Poderíamos adicionar aqui: Modificadores de vida/dano para esta onda
+        public int numberOfEnemies = 5;
+        public GameObject[] enemyPrefabs;
+        public float spawnInterval = 1.0f;
     }
 
     [Header("Configuração das Ondas")]
-    public List<Wave> waves;                 // Lista de todas as ondas
-    public float timeBetweenWaves = 5.0f;    // Tempo de espera APÓS limpar uma onda
-    public float initialSpawnDelay = 3.0f;   // Tempo antes da primeira onda começar
+    public List<Wave> waves;
+    public float timeBetweenWaves = 5.0f;
+    public float initialSpawnDelay = 3.0f;
 
     [Header("Área de Spawn")]
-    public Vector2 mapCenter = Vector2.zero; // Centro XZ do mapa
-    public Vector2 mapSize = new Vector2(40f, 40f); // Largura (X) e Profundidade (Z) total do mapa
-    public float spawnEdgeMargin = 2.0f;     // Quão longe da borda exata spawnar
+    public Vector2 mapCenter = Vector2.zero;
+    public Vector2 mapSize = new Vector2(40f, 40f);
+    public float spawnEdgeMargin = 2.0f;
+    public float spawnHeightY = 0.5f; // Altura Y do spawn
 
-    // Estado Interno
     private int currentWaveIndex = -1;
-    private List<GameObject> activeEnemies = new List<GameObject>(); // Lista para rastrear inimigos vivos
+    private List<GameObject> activeEnemies = new List<GameObject>();
     private bool isSpawningWave = false;
     private bool allWavesCompleted = false;
 
-    // --- Inicialização ---
     void Start()
     {
-        // Validações
-        if (waves == null || waves.Count == 0) {
-            Debug.LogError("Spawner: Nenhuma onda definida!");
-            enabled = false; return;
-        }
-        if (mapSize.x <= spawnEdgeMargin * 2 || mapSize.y <= spawnEdgeMargin * 2) {
-            Debug.LogError("Spawner: Tamanho do mapa muito pequeno para a margem definida!");
-            enabled = false; return;
-        }
-
-        // Inicia o controlador das ondas após o delay inicial
+        if (waves == null || waves.Count == 0) { Debug.LogError("Spawner: Nenhuma onda definida!"); enabled = false; return; }
+        if (mapSize.x <= spawnEdgeMargin * 2 || mapSize.y <= spawnEdgeMargin * 2) { Debug.LogError("Spawner: Tamanho do mapa muito pequeno!"); enabled = false; return; }
         StartCoroutine(WaveController());
     }
 
-    // --- Controlador Principal ---
     IEnumerator WaveController()
     {
         yield return new WaitForSeconds(initialSpawnDelay);
-
-        // Loop principal: continua enquanto houver ondas para spawnar
         while (currentWaveIndex < waves.Count - 1)
         {
-            // Se não estamos spawnando E a lista de inimigos ativos está vazia (onda anterior limpa)
+            // Espera a onda anterior terminar (sem inimigos ativos e sem spawn ativo)
+            // A condição "!isSpawningWave" aqui previne iniciar o delay entre ondas antes do spawn terminar.
             if (!isSpawningWave && activeEnemies.Count == 0)
             {
-                // Avança para a próxima onda
-                currentWaveIndex++;
+                 // Espera o tempo entre as ondas (exceto antes da primeira)
+                if(currentWaveIndex >= 0) // Já passou pelo menos uma onda
+                {
+                    Debug.Log($"Esperando {timeBetweenWaves}s para a próxima onda...");
+                    yield return new WaitForSeconds(timeBetweenWaves);
+                }
+
+                currentWaveIndex++; // Avança para a próxima onda
                 Wave currentWave = waves[currentWaveIndex];
                 Debug.Log($"Iniciando Onda {currentWaveIndex + 1}/{waves.Count}: {currentWave.waveName}");
-
-                // Inicia a rotina de spawn para a onda atual
-                StartCoroutine(SpawnWave(currentWave));
-
-                // Pequena pausa antes da próxima verificação do loop principal
-                yield return new WaitForSeconds(0.5f);
+                StartCoroutine(SpawnWave(currentWave)); // Inicia o spawn
             }
-            else
-            {
-                // Se ainda há inimigos ou está spawnando, espera um pouco e verifica de novo
-                yield return new WaitForSeconds(1.0f);
-            }
+            // Se ainda tem inimigos ou está spawnando, apenas espera um pouco
+            yield return new WaitForSeconds(1.0f);
         }
 
-        // Após sair do loop, espera a última onda ser limpa
+        // Espera a ÚLTIMA onda terminar
         while (activeEnemies.Count > 0)
         {
-             yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.0f);
         }
 
-        // Todas as ondas foram completadas
+        // Finaliza
         if (!allWavesCompleted)
         {
             allWavesCompleted = true;
             Debug.Log("****** TODAS AS ONDAS COMPLETADAS! ******");
-            // Adicione aqui lógica de fim de jogo ou próxima fase
         }
     }
 
-    // --- Rotina de Spawn para uma Onda Específica ---
     IEnumerator SpawnWave(Wave wave)
     {
-        isSpawningWave = true;
-        Debug.Log($"Spawnando {wave.numberOfEnemies} inimigos...");
+        isSpawningWave = true; // Indica que o spawn começou
+        Debug.Log($"Spawnando {wave.numberOfEnemies} inimigos para Onda {currentWaveIndex + 1}...");
 
-        // Calcula limites da área de spawn
         float minX = mapCenter.x - mapSize.x / 2f + spawnEdgeMargin;
         float maxX = mapCenter.x + mapSize.x / 2f - spawnEdgeMargin;
-        float minZ = mapCenter.y - mapSize.y / 2f + spawnEdgeMargin; // mapCenter.y é Z
-        float maxZ = mapCenter.y + mapSize.y / 2f - spawnEdgeMargin; // mapCenter.y é Z
+        float minZ = mapCenter.y - mapSize.y / 2f + spawnEdgeMargin;
+        float maxZ = mapCenter.y + mapSize.y / 2f - spawnEdgeMargin;
 
         int enemiesSpawned = 0;
-        List<Vector3> usedCardinalPoints = new List<Vector3>(); // Para evitar spawnar no mesmo ponto cardeal
+        List<Vector3> usedPoints = new List<Vector3>(); // Mantido, mas não usado para cardinal
 
-        // 1. Tenta garantir spawns direcionais (N, S, E, W) se houver inimigos suficientes
+        // Spawn Direcional (se aplicável)
         if (wave.numberOfEnemies >= 4)
         {
-            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'N'), wave.enemyPrefabs, usedCardinalPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
-            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'S'), wave.enemyPrefabs, usedCardinalPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
-            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'E'), wave.enemyPrefabs, usedCardinalPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
-            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'W'), wave.enemyPrefabs, usedCardinalPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
+            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'N'), wave.enemyPrefabs, usedPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
+            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'S'), wave.enemyPrefabs, usedPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
+            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'E'), wave.enemyPrefabs, usedPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
+            SpawnEnemyAt(GetDirectionalSpawnPosition(minX, maxX, minZ, maxZ, 'W'), wave.enemyPrefabs, usedPoints); enemiesSpawned++; yield return new WaitForSeconds(wave.spawnInterval);
         }
 
-        // 2. Spawna o restante aleatoriamente
+        // Spawn Aleatório Restante
         while (enemiesSpawned < wave.numberOfEnemies)
         {
-            SpawnEnemyAt(GetRandomSpawnPosition(minX, maxX, minZ, maxZ), wave.enemyPrefabs, usedCardinalPoints);
+            SpawnEnemyAt(GetRandomSpawnPosition(minX, maxX, minZ, maxZ), wave.enemyPrefabs, usedPoints);
             enemiesSpawned++;
             yield return new WaitForSeconds(wave.spawnInterval);
         }
 
-        isSpawningWave = false;
+        isSpawningWave = false; // Indica que o spawn terminou
         Debug.Log($"Spawn da Onda {currentWaveIndex + 1} completo.");
     }
 
-    // --- Funções Auxiliares de Posição ---
-
     Vector3 GetDirectionalSpawnPosition(float minX, float maxX, float minZ, float maxZ, char direction)
     {
-        float spawnX = Random.Range(minX, maxX); // Posição X geralmente aleatória
-        float spawnZ = Random.Range(minZ, maxZ); // Posição Z geralmente aleatória
-
+        float spawnX = Random.Range(minX, maxX);
+        float spawnZ = Random.Range(minZ, maxZ);
         switch (direction)
         {
-            case 'N': spawnZ = maxZ; break; // Norte = Z máximo
-            case 'S': spawnZ = minZ; break; // Sul = Z mínimo
-            case 'E': spawnX = maxX; break; // Leste = X máximo
-            case 'W': spawnX = minX; break; // Oeste = X mínimo
+            case 'N': spawnZ = maxZ; break;
+            case 'S': spawnZ = minZ; break;
+            case 'E': spawnX = maxX; break;
+            case 'W': spawnX = minX; break;
         }
-        // Assume Y=0 para o chão, ajuste se necessário
-        return new Vector3(spawnX, 0f, spawnZ);
+        return new Vector3(spawnX, spawnHeightY, spawnZ); // Usa altura Y configurada
     }
 
     Vector3 GetRandomSpawnPosition(float minX, float maxX, float minZ, float maxZ)
     {
         float spawnX = Random.Range(minX, maxX);
         float spawnZ = Random.Range(minZ, maxZ);
-        // Assume Y=0 para o chão, ajuste se necessário
-        return new Vector3(spawnX, 0f, spawnZ);
+        return new Vector3(spawnX, spawnHeightY, spawnZ); // Usa altura Y configurada
     }
 
-
-    // --- Função para Spawnar um Inimigo ---
-    // ***** CORREÇÃO APLICADA AQUI *****
-    void SpawnEnemyAt(Vector3 position, GameObject[] allowedPrefabs, List<Vector3> usedPoints /* ignore used points for now */)
+    void SpawnEnemyAt(Vector3 position, GameObject[] allowedPrefabs, List<Vector3> usedPoints)
     {
-        if (allowedPrefabs == null || allowedPrefabs.Length == 0)
-        {
-            Debug.LogError("Tentativa de spawn sem prefabs definidos na onda!");
-            return;
-        }
-        // Escolhe um tipo aleatório permitido nesta onda
+        if (allowedPrefabs == null || allowedPrefabs.Length == 0) { Debug.LogError("Spawn sem prefabs definidos!"); return; }
+
         GameObject prefabToSpawn = allowedPrefabs[Random.Range(0, allowedPrefabs.Length)];
-
-        // Instancia o inimigo
-        GameObject spawnedEnemy = Instantiate(prefabToSpawn, position, Quaternion.identity); // Rotação padrão
-
-        // Adiciona à lista de inimigos ativos
+        GameObject spawnedEnemy = Instantiate(prefabToSpawn, position, Quaternion.identity);
         activeEnemies.Add(spawnedEnemy);
 
-        // --- IMPORTANTE: Conecta o evento de morte ---
         HealthSystem health = spawnedEnemy.GetComponent<HealthSystem>();
         if (health != null)
         {
-            // Adiciona um "ouvinte" para quando o inimigo morrer
-            // Usaremos um componente auxiliar simples para isso
+            // Adiciona listener para notificar morte
             EnemyDeathListener listener = spawnedEnemy.AddComponent<EnemyDeathListener>();
-            listener.spawner = this; // Dá ao ouvinte uma referência a este spawner
+            listener.spawner = this;
         } else {
-             Debug.LogError($"Prefab {prefabToSpawn.name} não tem HealthSystem! Spawner não será notificado da morte.");
+             Debug.LogError($"Prefab {prefabToSpawn.name} não tem HealthSystem!");
         }
     }
 
-    // --- Função PÚBLICA Chamada pelo Inimigo ao Morrer (via Listener) ---
+    // Chamada pelo EnemyDeathListener quando um inimigo morre
     public void ReportEnemyDeath(GameObject deadEnemy)
     {
-        // Remove o inimigo da lista de ativos
         if (activeEnemies.Contains(deadEnemy))
         {
             activeEnemies.Remove(deadEnemy);
-            Debug.Log($"Inimigo {deadEnemy.name} removido da lista. Restantes: {activeEnemies.Count}");
-
-            // Se este era o último E a próxima onda ainda não começou E não é a última onda...
-            // O WaveController já cuida disso, mas podemos adicionar um log
-             if (activeEnemies.Count == 0 && !isSpawningWave && currentWaveIndex < waves.Count - 1)
-             {
-                 Debug.Log($"Onda {currentWaveIndex + 1} concluída! Aguardando {timeBetweenWaves}s para a próxima...");
-                 // O WaveController vai pegar isso no próximo loop e iniciar o delay
-             }
+            Debug.Log($"Inimigo removido. Restantes na onda: {activeEnemies.Count}");
+            // A lógica de iniciar a próxima onda está no WaveController
         }
     }
 }
