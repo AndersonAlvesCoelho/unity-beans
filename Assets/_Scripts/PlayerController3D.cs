@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody), typeof(Animator))]
 public class PlayerController3D : MonoBehaviour
 {
@@ -28,6 +28,11 @@ public class PlayerController3D : MonoBehaviour
     private bool isSprinting = false;
     private bool isAttacking = false;
     private float lastNonZeroHorizontal = 1f;
+    public List<AudioSource> audioSource;
+    public List<AudioClip> audioClips;
+
+    
+    
 
     void Start()
     {
@@ -57,10 +62,12 @@ public class PlayerController3D : MonoBehaviour
     {
         rawInput.x = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
         rawInput.y = Input.GetAxisRaw("Vertical");   // -1, 0, 1
-
+                          
         moveInput = rawInput;
         if (moveInput.sqrMagnitude > 1f)
             moveInput.Normalize();
+
+        
     }
 
     void HandleSprintInput()
@@ -163,6 +170,7 @@ public class PlayerController3D : MonoBehaviour
         animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.1f);
+        audioSource[0].Play();
         PerformDamageCheck();
 
         yield return new WaitForSeconds(attackAnimationDuration);
@@ -187,4 +195,5 @@ public class PlayerController3D : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+    
 }

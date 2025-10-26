@@ -131,7 +131,7 @@ public class EnemyController : MonoBehaviour
         if (patrolPoints == null || patrolPoints.Length == 0) { currentState = AIState.Idle; return; }
 
         Transform targetPoint = patrolPoints[currentPatrolIndex];
-        float distance = Vector3.Distance(GetPlanarPosition(transform.position), GetPlanarPosition(targetPoint.position));
+        float distance = Vector3.Distance(transform.position, targetPoint.position);
 
         if (distance < patrolPointThreshold)
         {
@@ -176,40 +176,51 @@ public class EnemyController : MonoBehaviour
         // LOG: Fim da espera, movendo para o próximo ponto
         Debug.Log($"[{gameObject.name}] Espera terminada. Movendo para ponto {currentPatrolIndex}.");
     }
-
-    void HandleChaseState()
+void HandleChaseState()
     {
         StopWaitingCoroutineIfNeeded();
         if (playerTransform == null) { GoBackToDefaultState(); return; }
 
-        // usar posições planas para comparação de distância
-        float distance = Vector3.Distance(GetPlanarPosition(transform.position), GetPlanarPosition(playerTransform.position));
+        // Calcula a distância real (incluindo Y, pode ser importante dependendo do seu jogo)
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        // Calcula a distância no plano XZ (ignora Y) para comparações mais estáveis se houver diferença de altura
+        float planarDistance = Vector3.Distance(transform.position, playerTransform.position);
 
-        //Debug para ajudar no dev (JÁ EXISTENTE E MANTIDO)
-        Debug.Log($"{name} - State: Chasing | Dist (planar): {distance:F2}");
+        // --- LOG DETALHADO ---
+        Debug.Log($"[{gameObject.name}] Estado: Chasing | Dist Total: {distance:F2} | Dist Planar: {planarDistance:F2} | Stopping (M): {stoppingDistance} | Attack (R): {rangedAttackDistance}");
 
-        // RANGED
-        if (enemyType == BehaviorType.Ranged && distance <= rangedAttackDistance)
+        // --- Decisão para Atirador (Ranged) ---
+        if (enemyType == BehaviorType.Ranged)
         {
-            // LOG: Transição de Chase para RangedAttack
-            Debug.Log($"[{gameObject.name}] [CHASE] -> Em alcance Ranged (Dist: {distance:F2}). Mudando para RANGED_ATTACKING.");
-            currentState = AIState.RangedAttacking;
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            return;
-        }   
-        // MELEE 
-        else if (enemyType != BehaviorType.Ranged && distance <= Mathf.Max(stoppingDistance, attackRange))
+            // Usa planarDistance para a decisão de *quando* mudar de estado
+            if (planarDistance <= rangedAttackDistance)
+            {
+                Debug.Log($"[{gameObject.name}] [CHASE->RANGED_ATTACKING] Em alcance Ranged (Planar Dist <= Ranged Attack Dist). Mudando de estado.");
+                currentState = AIState.RangedAttacking;
+                rb.velocity = new Vector3(0, rb.velocity.y, 0); // Para ao entrar no estado de ataque ranged
+                return; // Sai da função após mudar de estado
+            }
+            // else: Continua perseguindo (código no final da função)
+        }
+        // --- Decisão para Melee (Stationary/Patrol) ---
+        else // enemyType != BehaviorType.Ranged
         {
-            Debug.Log($"[{gameObject.name}] [CHASE] -> Em alcance Melee (Dist: {distance:F2}). Mudando para ATTACKING.");
-            currentState = AIState.Attacking;
-            rb.velocity = new Vector3(0, rb.velocity.y, 0); // força parada antes de atacar
-            return;
+            // Usa planarDistance para a decisão de *quando* mudar de estado
+            if (planarDistance <= stoppingDistance)
+            {
+                Debug.Log($"[{gameObject.name}] [CHASE->ATTACKING] Em alcance Melee (Planar Dist <= Stopping Dist). Mudando de estado.");
+                currentState = AIState.Attacking;
+                rb.velocity = new Vector3(0, rb.velocity.y, 0); // Para ao entrar no estado de ataque melee
+                return; // Sai da função após mudar de estado
+            }
+            // else: Continua perseguindo (código no final da função)
         }
 
-        // Ainda longe: persegue normalmente
+        // --- Se nenhuma condição de ataque foi atendida: Continua Perseguindo ---
+        // Debug.Log($"[{gameObject.name}] [CHASE] Fora de alcance. Continuar perseguindo."); // Log opcional
         Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * chaseSpeed;
-        targetVelocity.y = rb.linearVelocity.y;
-        rb.velocity = targetVelocity;
+        targetVelocity.y = rb.velocity.y; // Mantém gravidade
+        rb.velocity = targetVelocity;     // Define velocidade
     }
 
     void HandleAttackState()
@@ -217,11 +228,12 @@ public class EnemyController : MonoBehaviour
         StopWaitingCoroutineIfNeeded();
         if (playerTransform == null) { GoBackToDefaultState(); return; }
 
-        float distance = Vector3.Distance(GetPlanarPosition(transform.position), GetPlanarPosition(playerTransform.position));
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
 
         // se afastar mais do que o alcance + margem -> volta a perseguir
         if (distance > attackRange + 0.5f)
         {
+            // LOG: Transição de Attack para Chase (jogador fugiu)
             Debug.Log($"[{gameObject.name}] [ATTACK] -> Player saiu do alcance (Dist: {distance:F2}). Voltando para CHASING.");
             currentState = AIState.Chasing;
             return;
@@ -232,6 +244,7 @@ public class EnemyController : MonoBehaviour
 
         if (Time.time >= nextAttackTime)
         {
+            // LOG: Execução do ataque melee
             Debug.Log($"[{gameObject.name}] [ATTACK] -> Executando ataque MELEE.");
             PerformMeleeAttack();
             nextAttackTime = Time.time + attackRate;
@@ -243,7 +256,7 @@ public class EnemyController : MonoBehaviour
         StopWaitingCoroutineIfNeeded();
         if (playerTransform == null) { GoBackToDefaultState(); return; }
 
-        float distance = Vector3.Distance(GetPlanarPosition(transform.position), GetPlanarPosition(playerTransform.position));
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
 
         if (distance < retreatDistance)
         {
@@ -386,8 +399,6 @@ public class EnemyController : MonoBehaviour
             isWaitingAtPatrolPoint = false;
         }
     }
-
-    Vector3 GetPlanarPosition(Vector3 pos) => new Vector3(pos.x, 0, pos.z);
 
     void OnDrawGizmosSelected()
     {
