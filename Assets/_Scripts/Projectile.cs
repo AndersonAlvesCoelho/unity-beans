@@ -5,6 +5,13 @@ public class Projectile : MonoBehaviour
     public float damage = 1f; // Dano deste projétil
     public string targetTag = "Player"; // Tag do alvo a acertar
 
+    void  start()
+    {
+        Debug.Log("Name of the projectile: " + this.gameObject.name);
+
+        // Destroy(gameObject, 5f);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         // Verifica se colidiu com o alvo correto

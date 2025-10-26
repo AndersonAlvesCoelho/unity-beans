@@ -39,7 +39,7 @@ public class PlayerController3D : MonoBehaviour
         if (attackPoint == null) Debug.LogError("PlayerController3D: AttackPoint não atribuído!");
 
         // Trava rotações físicas (evita girar ao colidir)
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        // rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void Update()

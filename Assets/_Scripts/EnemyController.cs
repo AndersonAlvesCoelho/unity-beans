@@ -216,47 +216,40 @@ public class EnemyController : MonoBehaviour
         if (playerTransform == null) { GoBackToDefaultState(); return; }
 
         float distance = Vector3.Distance(transform.position, playerTransform.position);
-        Debug.Log($"[Ranged State] Dist: {distance:F2} | Retreat: {retreatDistance} | Stop: {rangedStoppingDistance} | Attack: {rangedAttackDistance}");
 
-        if (distance < retreatDistance)
+        // Decide se recua, atira ou persegue novamente
+        if (distance < retreatDistance) // Jogador muito perto -> Recuar
         {
-            Debug.Log("[Ranged State] Recuando...");
             Vector3 directionAway = (transform.position - playerTransform.position).normalized;
-            Vector3 targetVelocity = new Vector3(directionAway.x, 0, directionAway.z) * chaseSpeed;
+            Vector3 targetVelocity = new Vector3(directionAway.x, 0, directionAway.z) * chaseSpeed; // Usa chaseSpeed para recuar rápido
             targetVelocity.y = rb.linearVelocity.y;
-            rb.linearVelocity = targetVelocity;
+            rb.linearVelocity = targetVelocity;     
         }
-        else if (distance > rangedAttackDistance)
+        else if (distance > rangedAttackDistance) // Jogador muito longe -> Perseguir
         {
-            Debug.Log("[Ranged State] Longe demais, voltando a perseguir.");
             currentState = AIState.Chasing;
         }
-        else // Distância ideal (entre retreatDistance e rangedAttackDistance)
+        else // Distância na zona de ataque (entre retreat e rangedAttack)
         {
-            // Se estiver um pouco longe demais DENTRO da zona de ataque, APROXIME-SE até a stopping distance
+            // Se ainda estiver longe demais para PARAR e atirar -> Aproximar
             if (distance > rangedStoppingDistance)
             {
-                Debug.Log($"[Ranged State] Na zona de ataque, mas longe ({distance:F2} > {rangedStoppingDistance}). Aproximando...");
                 Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-                lookDirection = new Vector2(directionToPlayer.x, directionToPlayer.z); 
-                Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * chaseSpeed; 
-                targetVelocity.y = rb.linearVelocity.y;
-                rb.linearVelocity = targetVelocity;
+                lookDirection = new Vector2(directionToPlayer.x, directionToPlayer.z); // Atualiza para onde olhar
+                Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * chaseSpeed; // Usa chaseSpeed para aproximar
+                targetVelocity.y = rb.linearVelocity.y; // Mantém gravidade/velocidade Y anterior
+                rb.linearVelocity = targetVelocity;     // Define nova velocidade
             }
             // Se estiver na distância ideal para PARAR e atirar (entre retreat e rangedStopping)
             else
             {
-                Debug.Log($"[Ranged State] Distância ideal ({distance:F2}). Parando para atirar.");
-                rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0); // Para
+                rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0); // Para movimento horizontal/profundidade
 
                 // Atira se cooldown permitir
                 if (Time.time >= nextAttackTime)
                 {
-                    Debug.Log(gameObject.name + " >>> TENTANDO DISPARAR <<<");
-                    FireProjectile(); // Chama a função de disparo (que já tem logs)
-                    nextAttackTime = Time.time + rangedAttackRate;
-                } else {
-                    Debug.Log(gameObject.name + " em cooldown. Próximo tiro em " + (nextAttackTime - Time.time).ToString("F2") + "s");
+                    FireProjectile(); // Chama a função de disparo
+                    nextAttackTime = Time.time + rangedAttackRate; // Define próximo tempo de ataque
                 }
             }
         }
@@ -296,8 +289,13 @@ public class EnemyController : MonoBehaviour
     {
         if (projectilePrefab == null || firePoint == null) return;
         animator.SetTrigger("Attack");
+
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        if (projectile == null) return;
+
+        if (projectile == null)
+        {
+            return;
+        }
 
         Vector3 directionToPlayer = (playerTransform.position - firePoint.position);
         directionToPlayer.y = 0;
