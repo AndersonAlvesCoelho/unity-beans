@@ -124,7 +124,7 @@ SpriteRenderer:
   m_Size: {x: 5.7607975, y: 5.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!95 &9123866195098446579
@@ -235,4 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
   maxHealth: 6
-  disappearDelayAfterDeath: 2
+  disappearDelayAfterDeath: 1
+  knockbackForce: 5
+  invulnerabilityTime: 0.6
+  blinkInterval: 0.1
