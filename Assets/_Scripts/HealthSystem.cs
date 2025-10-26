@@ -5,7 +5,7 @@ public class HealthSystem : MonoBehaviour
 {
     [Header("Configuração")]
     public float maxHealth = 10f;
-    public float disappearDelayAfterDeath = 2f;
+    public float disappearDelayAfterDeath = 0.8f;
 
     [Header("Knockback")]
     public float knockbackForce = 8f;
