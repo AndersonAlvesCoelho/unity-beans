@@ -185,29 +185,63 @@ public class HealthSystem : MonoBehaviour
         // Para movimento
         if (rb != null) rb.linearVelocity = Vector3.zero;
 
-        // Aguarda o tempo da animação de morte (ou 0.8s padrão)
-        float dieAnimDuration = 0.8f;
-        if (hasDieTrigger && animator != null)
+        if (animator == null || !hasDieTrigger)
         {
-            // tenta detectar automaticamente a duração
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            dieAnimDuration = stateInfo.length;
+            yield return new WaitForSeconds(disappearDelayAfterDeath);
         }
+        else
+        {
+            // 1) Espera o Animator entrar no estado "Die" (ou timeout)
+            float enterTimeout = 0.5f; // evita loop infinito se a transição não ocorrer
+            float waited = 0f;
+            // Wait one frame to allow transitions to start
+            yield return null;
 
-        yield return new WaitForSeconds(dieAnimDuration);
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die") && waited < enterTimeout)
+            {
+                waited += Time.deltaTime;
+                yield return null;
+            }
 
-        // Congela no último frame da animação (impede voltar para Idle)
-         if (!isPlayer){
-            if (animator != null) animator.speed = 0f; // congela no último frame
+            // 2) Se entrou no estado Die, espera até que normalizedTime >= 1 (animação completa)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
+            {
+                // Espera até o fim da animação de morte
+                while (animator.GetCurrentAnimatorStateInfo(0).IsName("Die") &&
+                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+                {
+                    yield return null;
+                }
+            }
+            else
+            {
+                // Se não entrou no Die por timeout, tenta usar o length como fallback
+                float fallback = animator.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(fallback);
+            }
 
-            yield return new WaitForSeconds(1f); // espera antes de sumir
+            // 3) Ações pós-animação:
+            if (isEnemy)
+            {
+                // congela no último frame (impede voltar para Idle)
+                animator.speed = 0f;
+
+                // espera um pouco congelado antes de sumir (usa disappearDelayAfterDeath)
+                yield return new WaitForSeconds(disappearDelayAfterDeath);
+            }
+            else // isPlayer
+            {
+                // Para o player: não congelar o animator — deixa correr normalmente até o fim (já esperámos)
+                // Opcional: mantém um pequeno delay antes de sumir para garantir feedback visual
+                yield return new WaitForSeconds(disappearDelayAfterDeath);
+            }
         }
 
         // Desativa física e colisão
         if (rb != null) rb.isKinematic = true;
         if (charCollider != null) charCollider.enabled = false;
 
-        // Some da tela (ou destrói, se preferir)
+        // Remove/Destrói o objeto (a escolha original era SetActive(false))
         gameObject.SetActive(false);
     }
 
