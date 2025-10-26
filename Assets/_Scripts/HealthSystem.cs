@@ -6,19 +6,24 @@ public class HealthSystem : MonoBehaviour
     [Header("Configuração")]
     public float maxHealth = 10f;
     public float disappearDelayAfterDeath = 2f;
-    public float knockbackForce = 5f;
+
+    [Header("Knockback")]
+    public float knockbackForce = 8f;
+    public float knockbackDuration = 0.18f; // tempo que o controle ficará bloqueado após o empurrão
 
     [Header("Efeitos de Dano")]
     public float invulnerabilityTime = 0.6f;
-    public float blinkInterval = 0.1f;
+    public float blinkInterval = 0.08f;
 
-    // Propriedade pública de leitura
+    // Leitura externa da vida atual
     public float CurrentHealth { get; private set; }
 
+    // Estados
     private bool isDead = false;
     private bool isInvulnerable = false;
+    private bool isKnockedBack = false;
 
-    // Referências
+    // Componentes
     private Animator animator;
     private Rigidbody rb;
     private Collider charCollider;
@@ -36,92 +41,131 @@ public class HealthSystem : MonoBehaviour
         if (animator == null) Debug.LogWarning("HealthSystem: Animator não encontrado em " + gameObject.name);
         if (rb == null) Debug.LogWarning("HealthSystem: Rigidbody não encontrado em " + gameObject.name);
         if (charCollider == null) Debug.LogWarning("HealthSystem: Collider não encontrado em " + gameObject.name);
+        if (spriteRenderer == null) Debug.LogWarning("HealthSystem: SpriteRenderer não encontrado em " + gameObject.name);
     }
 
-    // ------------------------------
-    // FUNÇÃO DE DANO PRINCIPAL
-    // ------------------------------
+    /// <summary>
+    /// Aplica dano. Opcionalmente passe o transform do atacante para aplicar knockback.
+    /// </summary>
     public void TakeDamage(float damageAmount, Transform attackerTransform = null)
     {
-        if (isDead || isInvulnerable) return;
+        if (isDead) return;
+        if (isInvulnerable) return;
 
         CurrentHealth -= damageAmount;
         Debug.Log($"{gameObject.name} tomou {damageAmount} de dano. Vida: {CurrentHealth}/{maxHealth}");
 
-        // 1️⃣ Knockback sempre que levar dano
-        ApplyKnockback(attackerTransform);
-
-        // 2️⃣ Efeito de piscar + invulnerabilidade
-        StartCoroutine(DamageFlashAndInvulnerability());
-
-        // 3️⃣ Animação de dano
-        if (animator != null && CurrentHealth > 0)
-            animator.SetTrigger("Damage");
-
-        // 4️⃣ Checa morte
-        if (CurrentHealth <= 0)
+        // 1) Knockback (se houver atacante)
+        if (attackerTransform != null && knockbackForce > 0f && rb != null && !rb.isKinematic)
         {
-            CurrentHealth = 0;
+            StartCoroutine(ApplyKnockbackCoroutine(attackerTransform));
+        }
+
+        // 2) Piscar e invulnerabilidade curta
+        if (spriteRenderer != null)
+        {
+            StartCoroutine(DamageFlashAndInvulnerability());
+        }
+        else
+        {
+            // Garante que exista invulnerabilidade mesmo sem sprite (evita hits múltiplos)
+            StartCoroutine(SimpleInvulnerability());
+        }
+
+        // 3) Trigger de animação de dano
+        if (animator != null && CurrentHealth > 0)
+        {
+            animator.SetTrigger("Damage");
+        }
+
+        // 4) Checar morte
+        if (CurrentHealth <= 0f)
+        {
+            CurrentHealth = 0f;
             if (!isDead) StartCoroutine(HandleDeath());
         }
     }
 
-    // ------------------------------
-    // APLICA EMPURRÃO (KNOCKBACK)
-    // ------------------------------
-    private void ApplyKnockback(Transform attacker)
+    // Aplica knockback e impede controle por um tempo curto (isKnockedBack)
+    private IEnumerator ApplyKnockbackCoroutine(Transform attacker)
     {
-        if (rb != null && attackerTransform != null && knockbackForce > 0f && !rb.isKinematic)
+        if (rb == null || attacker == null) yield break;
+
+        // Marca knockback
+        isKnockedBack = true;
+
+        // Direção do empurrão: sai do atacante
+        Vector3 dir = (transform.position - attacker.position);
+        dir.y = 0f;
+        if (dir.sqrMagnitude < 0.001f)
         {
-            Vector3 knockbackDirection = (transform.position - attackerTransform.position);
-            knockbackDirection.y = 0;
-            knockbackDirection.Normalize();
-
-            rb.velocity = Vector3.zero; // limpa velocidade atual
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode.VelocityChange);
-
-            Debug.Log($"Knockback aplicado em {gameObject.name}, direção: {knockbackDirection}");
+            // fallback para evitar NaN (se estiver exatamente na mesma posição)
+            dir = transform.forward;
+            dir.y = 0f;
         }
+        dir.Normalize();
+
+        // Zera velocidade horizontal atual para tornar o impulso consistente
+        rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+
+        // Aplica impulso ignorando massa (mais responsivo)
+        rb.AddForce(dir * knockbackForce, ForceMode.VelocityChange);
+
+        // Tempo em que o personagem fica "fora de controle" (não deve ser movido por jogador/AI)
+        float t = 0f;
+        while (t < knockbackDuration)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        // opcional: não zera a velocidade aqui para preservar física natural, apenas libera controle
+        isKnockedBack = false;
     }
 
-    // ------------------------------
-    // PISCAR E INVULNERABILIDADE TEMPORÁRIA
-    // ------------------------------
+    // Piscar + invulnerabilidade
     private IEnumerator DamageFlashAndInvulnerability()
     {
         if (spriteRenderer == null) yield break;
 
         isInvulnerable = true;
-        Color originalColor = spriteRenderer.color;
+        Color original = spriteRenderer.color;
+        float elapsed = 0f;
         bool visible = true;
 
-        float elapsed = 0f;
         while (elapsed < invulnerabilityTime)
         {
-            spriteRenderer.color = visible ? originalColor : new Color(1, 0.3f, 0.3f, 0.7f);
+            spriteRenderer.color = visible ? original : new Color(1f, 0.3f, 0.3f, 0.8f); // alterna para vermelho translúcido
             visible = !visible;
             elapsed += blinkInterval;
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        spriteRenderer.color = originalColor;
+        // restaura e libera
+        spriteRenderer.color = original;
         isInvulnerable = false;
     }
 
-    // ------------------------------
-    // MORTE E DESAPARECIMENTO
-    // ------------------------------
+    // Fallback caso não haja spriteRenderer
+    private IEnumerator SimpleInvulnerability()
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(invulnerabilityTime);
+        isInvulnerable = false;
+    }
+
+    // Morte (piscar e desativar)
     private IEnumerator HandleDeath()
     {
         isDead = true;
         Debug.Log(gameObject.name + " morreu.");
 
-        // Animação de morte (se existir)
+        // Animação de morrer se houver
         if (animator != null)
         {
-            foreach (AnimatorControllerParameter param in animator.parameters)
+            foreach (var p in animator.parameters)
             {
-                if (param.name == "Die")
+                if (p.name == "Die")
                 {
                     animator.SetTrigger("Die");
                     break;
@@ -129,37 +173,43 @@ public class HealthSystem : MonoBehaviour
             }
         }
 
-        // Desativa controladores
-        if (TryGetComponent<PlayerController3D>(out var playerController))
-            playerController.enabled = false;
-        if (TryGetComponent<EnemyController>(out var enemyController))
-            enemyController.enabled = false;
+        // Desativa controladores se existirem
+        if (TryGetComponent<PlayerController3D>(out var playerController)) playerController.enabled = false;
+        if (TryGetComponent<EnemyController>(out var enemyController)) enemyController.enabled = false;
 
-        if (rb != null)
-            rb.velocity = Vector3.zero;
+        // Para movimento
+        if (rb != null) rb.linearVelocity = Vector3.zero;
 
         // Piscar até sumir
         if (spriteRenderer != null)
         {
-            float endTime = Time.time + disappearDelayAfterDeath;
+            Color original = spriteRenderer.color;
+            float end = Time.time + disappearDelayAfterDeath;
             bool visible = true;
-            Color originalColor = spriteRenderer.color;
 
-            while (Time.time < endTime)
+            while (Time.time < end)
             {
-                spriteRenderer.color = visible ? originalColor : Color.red;
+                // spriteRenderer.color = visible ? original : Color.red;   
                 visible = !visible;
                 yield return new WaitForSeconds(blinkInterval);
             }
 
-            spriteRenderer.color = Color.gray;
+            spriteRenderer.color = Color.grey;
+        }
+        else
+        {
+            yield return new WaitForSeconds(disappearDelayAfterDeath);
         }
 
+        // Desativa física/collider e o objeto
         if (rb != null) rb.isKinematic = true;
         if (charCollider != null) charCollider.enabled = false;
 
         gameObject.SetActive(false);
     }
 
+    // Getters auxiliares para outros scripts saberem o estado
     public bool IsDead() => isDead;
+    public bool IsInvulnerable() => isInvulnerable;
+    public bool IsKnockedBack() => isKnockedBack;
 }
