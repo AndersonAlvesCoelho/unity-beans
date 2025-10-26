@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   pauseMenuUI: {fileID: 499330267}
-  nomeCenaMenuPrincipal: MenuPrincipal
+  nomeCenaMenu: Menu
   pauseKey: 27
   gerenciarCursor: 1
 --- !u!4 &106833113
@@ -394,7 +394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &499330268
 MonoBehaviour:
   m_ObjectHideFlags: 0

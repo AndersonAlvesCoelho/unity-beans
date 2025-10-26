@@ -54,7 +54,7 @@ public class PlayerController3D : MonoBehaviour
 
         // Controla direção visual
         HandleFlip();
-
+        HandleWalkSound();
         UpdateAnimator();
     }
 
@@ -112,7 +112,7 @@ public class PlayerController3D : MonoBehaviour
         canSprint = false;
         isSprinting = true;
         animator.SetBool("IsSprinting", true);
-
+        audioSource[3].Play();
         Vector3 dashDir = new Vector3(moveInput.x, 0f, moveInput.y);
         if (dashDir.sqrMagnitude < 0.001f)
             dashDir = new Vector3(lastNonZeroHorizontal > 0 ? 1f : -1f, 0f, 0f);
@@ -131,6 +131,7 @@ public class PlayerController3D : MonoBehaviour
 
         yield return new WaitForSeconds(sprintCooldown);
         canSprint = true;
+        
     }
 
     void FixedUpdate()
@@ -162,19 +163,20 @@ public class PlayerController3D : MonoBehaviour
         Vector3 target = new Vector3(moveInput.x, 0f, moveInput.y) * moveSpeed;
         target.y = rb.linearVelocity.y;
         rb.linearVelocity = target;
+
     }
+  
 
     IEnumerator AttackSequence()
     {
         isAttacking = true;
         animator.SetTrigger("Attack");
-
+        audioSource[1].Play();
         yield return new WaitForSeconds(0.1f);
-        audioSource[0].Play();
         PerformDamageCheck();
-
         yield return new WaitForSeconds(attackAnimationDuration);
         isAttacking = false;
+        
     }
 
     void PerformDamageCheck()
@@ -195,5 +197,26 @@ public class PlayerController3D : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    
+void HandleWalkSound()
+{
+    if (audioSource == null || audioSource.Count == 0) return;
+
+    AudioSource walkSource = audioSource[0]; // [0] = Walk
+
+    // está se movendo de verdade?
+    bool isMoving =
+        !isSprinting &&
+        !isAttacking &&
+        (moveInput.sqrMagnitude > 0.01f || rb.velocity.magnitude > 0.1f);
+
+    if (isMoving && !walkSource.isPlaying)
+    {
+        walkSource.loop = true;
+        if (walkSource.clip != null) walkSource.Play();
+    }
+    else if (!isMoving && walkSource.isPlaying)
+    {
+        walkSource.Stop();
+    }
+}
 }
