@@ -52,7 +52,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10, y: 2, z: 10}
-  m_Center: {x: 0, y: -1.9, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7510007811598551463
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,26 +234,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemyType: 0
   playerTransform: {fileID: 0}
-  patrolSpeed: 2
-  chaseSpeed: 3
-  stoppingDistance: 3
+  patrolSpeed: 0
+  chaseSpeed: 5
+  stoppingDistance: 2
   patrolPoints: []
   patrolWaitTime: 0
   patrolPointThreshold: 0
   attackDamage: 1
-  attackRate: 2
+  attackRate: 3
   attackPoint: {fileID: 2476403502760393253}
-  attackRange: 3
+  attackRange: 10
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
-  rangedAttackDistance: 3
-  rangedStoppingDistance: 1.5
-  retreatDistance: 2
+  rangedAttackDistance: 0
+  rangedStoppingDistance: 0
+  retreatDistance: 0
   projectileSpeed: 0
   rangedAttackRate: 0
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
 --- !u!114 &866610023867798275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,8 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e505f4b6dec9f4d9141930692bfe16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
-  maxHealth: 5
-  disappearDelayAfterDeath: 1
+  maxHealth: 7.5
+  disappearDelayAfterDeath: 0.5
   knockbackForce: 8
   knockbackDuration: 0.18
   invulnerabilityTime: 0.6
@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 7588202774657678552}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalPosition: {x: -4, y: 0.11, z: -0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
