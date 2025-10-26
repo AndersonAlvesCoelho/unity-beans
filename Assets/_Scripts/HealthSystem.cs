@@ -1,5 +1,3 @@
-// HealthSystem.cs (Otimizado, com Getter Público)
-
 using UnityEngine;
 using System.Collections;
 
@@ -8,138 +6,158 @@ public class HealthSystem : MonoBehaviour
     [Header("Configuração")]
     public float maxHealth = 10f;
     public float disappearDelayAfterDeath = 2f;
+    public float knockbackForce = 5f;
 
-    // Propriedade pública para LER a vida atual (só leitura externa)
+    [Header("Efeitos de Dano")]
+    public float invulnerabilityTime = 0.6f;
+    public float blinkInterval = 0.1f;
+
+    // Propriedade pública de leitura
     public float CurrentHealth { get; private set; }
 
-    // Estado interno
     private bool isDead = false;
+    private bool isInvulnerable = false;
 
-    // Referências (pegas automaticamente)
+    // Referências
     private Animator animator;
     private Rigidbody rb;
     private Collider charCollider;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
-        CurrentHealth = maxHealth; // Inicializa a vida atual
+        CurrentHealth = maxHealth;
 
-        // Pega componentes
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         charCollider = GetComponent<Collider>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Validações
         if (animator == null) Debug.LogWarning("HealthSystem: Animator não encontrado em " + gameObject.name);
         if (rb == null) Debug.LogWarning("HealthSystem: Rigidbody não encontrado em " + gameObject.name);
-        if (charCollider == null) Debug.LogWarning("HealthSystem: Collider principal não encontrado em " + gameObject.name);
+        if (charCollider == null) Debug.LogWarning("HealthSystem: Collider não encontrado em " + gameObject.name);
     }
 
-    // Função para receber dano
-    public void TakeDamage(float damageAmount)
+    // ------------------------------
+    // FUNÇÃO DE DANO PRINCIPAL
+    // ------------------------------
+    public void TakeDamage(float damageAmount, Transform attackerTransform = null)
     {
-        if (isDead) return;
+        if (isDead || isInvulnerable) return;
 
-        CurrentHealth -= damageAmount; // Atualiza a propriedade
-        Debug.Log(gameObject.name + " tomou " + damageAmount + " de dano. Vida: " + CurrentHealth + "/" + maxHealth);
+        CurrentHealth -= damageAmount;
+        Debug.Log($"{gameObject.name} tomou {damageAmount} de dano. Vida: {CurrentHealth}/{maxHealth}");
 
+        // 1️⃣ Knockback sempre que levar dano
+        ApplyKnockback(attackerTransform);
+
+        // 2️⃣ Efeito de piscar + invulnerabilidade
+        StartCoroutine(DamageFlashAndInvulnerability());
+
+        // 3️⃣ Animação de dano
+        if (animator != null && CurrentHealth > 0)
+            animator.SetTrigger("Damage");
+
+        // 4️⃣ Checa morte
         if (CurrentHealth <= 0)
         {
             CurrentHealth = 0;
-            if (!isDead) // Garante que Die() só seja chamado uma vez
-            {
-                 StartCoroutine(HandleDeath());
-            }
-        }
-        else
-        {
-            if (animator != null) animator.SetTrigger("Damage");
+            if (!isDead) StartCoroutine(HandleDeath());
         }
     }
 
+    // ------------------------------
+    // APLICA EMPURRÃO (KNOCKBACK)
+    // ------------------------------
+    private void ApplyKnockback(Transform attacker)
+    {
+        if (rb == null || attacker == null || knockbackForce <= 0f || rb.isKinematic)
+            return;
 
+        Vector3 knockbackDirection = (transform.position - attacker.position);
+        knockbackDirection.y = 0;
+        knockbackDirection.Normalize();
+
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+    }
+
+    // ------------------------------
+    // PISCAR E INVULNERABILIDADE TEMPORÁRIA
+    // ------------------------------
+    private IEnumerator DamageFlashAndInvulnerability()
+    {
+        if (spriteRenderer == null) yield break;
+
+        isInvulnerable = true;
+        Color originalColor = spriteRenderer.color;
+        bool visible = true;
+
+        float elapsed = 0f;
+        while (elapsed < invulnerabilityTime)
+        {
+            spriteRenderer.color = visible ? originalColor : new Color(1, 0.3f, 0.3f, 0.7f);
+            visible = !visible;
+            elapsed += blinkInterval;
+            yield return new WaitForSeconds(blinkInterval);
+        }
+
+        spriteRenderer.color = originalColor;
+        isInvulnerable = false;
+    }
+
+    // ------------------------------
+    // MORTE E DESAPARECIMENTO
+    // ------------------------------
     private IEnumerator HandleDeath()
     {
         isDead = true;
         Debug.Log(gameObject.name + " morreu.");
 
-        // Pega o SpriteRenderer
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        Color originalColor = Color.white; // Assume cor original branca
-        if (spriteRenderer != null) {
-            originalColor = spriteRenderer.color; // Guarda a cor original
-        }
-
-        // 1. Tenta disparar a animação de morte
+        // Animação de morte (se existir)
         if (animator != null)
         {
-             bool hasDieParameter = false;
-             foreach (AnimatorControllerParameter param in animator.parameters) {
-                 if (param.name == "Die") { hasDieParameter = true; break; }
-             }
-             if(hasDieParameter) animator.SetTrigger("Die");
-             else Debug.LogWarning("Parâmetro 'Die' não encontrado no Animator de " + gameObject.name);
+            foreach (AnimatorControllerParameter param in animator.parameters)
+            {
+                if (param.name == "Die")
+                {
+                    animator.SetTrigger("Die");
+                    break;
+                }
+            }
         }
 
-        // 2. Desativa scripts de controle
-        PlayerController3D playerController = GetComponent<PlayerController3D>();
-        if (playerController != null) playerController.enabled = false;
-        EnemyController enemyController = GetComponent<EnemyController>();
-        if (enemyController != null) enemyController.enabled = false;
+        // Desativa controladores
+        if (TryGetComponent<PlayerController3D>(out var playerController))
+            playerController.enabled = false;
+        if (TryGetComponent<EnemyController>(out var enemyController))
+            enemyController.enabled = false;
 
-        // 3. PARA o movimento, mas NÃO desativa colisão/física AINDA
         if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero; // Para o movimento
-            // NÃO TORNAMOS CINEMÁTICO AINDA
-        }
-        // NÃO DESATIVAMOS O COLISOR AINDA
+            rb.linearVelocity = Vector3.zero;
 
-        // --- EFEITO DE PISCAR (Mudando Cor/Alpha) ---
+        // Piscar até sumir
         if (spriteRenderer != null)
         {
-            Debug.Log("Iniciando efeito de piscar (cor)...");
-            float blinkInterval = 0.1f;
             float endTime = Time.time + disappearDelayAfterDeath;
-            bool isVisible = true; // Controla o estado do piscar
+            bool visible = true;
+            Color originalColor = spriteRenderer.color;
 
             while (Time.time < endTime)
             {
-                // Alterna entre cor original e transparente (ou outra cor)
-                //spriteRenderer.color = isVisible ? originalColor : Color.clear; // Pisca ficando transparente
-                spriteRenderer.color = isVisible ? originalColor : Color.red; // Pisca ficando vermelho
-
-                isVisible = !isVisible; // Inverte para o próximo ciclo
+                spriteRenderer.color = visible ? originalColor : Color.red;
+                visible = !visible;
                 yield return new WaitForSeconds(blinkInterval);
             }
 
-            // Garante que a cor volte ao normal (ou fique numa cor "morta")
-             spriteRenderer.color = originalColor; // Volta à cor normal no final do piscar
-             // Ou, se quiser deixar cinza, por exemplo:
-             // spriteRenderer.color = Color.grey;
-
-            Debug.Log("Fim do efeito de piscar.");
-        }
-        else
-        {
-            // Se não tem SpriteRenderer, apenas espera o tempo
-            yield return new WaitForSeconds(disappearDelayAfterDeath);
+            spriteRenderer.color = Color.gray;
         }
 
-        // --- DESATIVAÇÃO FINAL (APÓS PISCAR) ---
-        Debug.Log("Desativando física e colisão de " + gameObject.name);
-        // Agora sim, desativa física e colisão
         if (rb != null) rb.isKinematic = true;
         if (charCollider != null) charCollider.enabled = false;
 
-        // Desativa o GameObject
-        Debug.Log("Desativando " + gameObject.name);
         gameObject.SetActive(false);
     }
 
-    // Função pública para checar se está morto
-    public bool IsDead()
-    {
-        return isDead;
-    }
+    public bool IsDead() => isDead;
 }
