@@ -164,7 +164,6 @@ public class HealthSystem : MonoBehaviour
         bool isEnemy = TryGetComponent<EnemyController>(out var enemyController);
 
         // Dispara a animação de morte se existir
-        bool hasDieTrigger = false;
         if (animator != null)
         {
             foreach (var p in animator.parameters)
@@ -172,78 +171,62 @@ public class HealthSystem : MonoBehaviour
                 if (p.name == "Die")
                 {
                     animator.SetTrigger("Die");
-                    hasDieTrigger = true;
                     break;
                 }
             }
         }
 
         // Desativa controladores de movimento/IA
-        if (isPlayer) playerController.enabled = false;
-        if (isEnemy) enemyController.enabled = false;
+        if (isPlayer && playerController != null) playerController.enabled = false;
+        if (isEnemy && enemyController != null) enemyController.enabled = false;
 
         // Para movimento
         if (rb != null) rb.linearVelocity = Vector3.zero;
 
-        if (animator == null || !hasDieTrigger)
+        // --- Espera o Animator entrar no estado "Die" ---
+        if (animator != null)
         {
-            yield return new WaitForSeconds(disappearDelayAfterDeath);
-        }
-        else
-        {
-            // 1) Espera o Animator entrar no estado "Die" (ou timeout)
-            float enterTimeout = 0.5f; // evita loop infinito se a transição não ocorrer
+            float enterTimeout = 0.5f; // evita loop infinito
             float waited = 0f;
-            // Wait one frame to allow transitions to start
-            yield return null;
 
+            // Espera até o estado "Die" começar
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die") && waited < enterTimeout)
             {
                 waited += Time.deltaTime;
                 yield return null;
             }
 
-            // 2) Se entrou no estado Die, espera até que normalizedTime >= 1 (animação completa)
+            // Se entrou no estado Die, espera até normalizedTime >= 1
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
             {
-                // Espera até o fim da animação de morte
-                while (animator.GetCurrentAnimatorStateInfo(0).IsName("Die") &&
-                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+                while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
                 {
                     yield return null;
                 }
             }
-            else
-            {
-                // Se não entrou no Die por timeout, tenta usar o length como fallback
-                float fallback = animator.GetCurrentAnimatorStateInfo(0).length;
-                yield return new WaitForSeconds(fallback);
-            }
+        }
 
-            // 3) Ações pós-animação:
-            if (isEnemy)
-            {
-                // congela no último frame (impede voltar para Idle)
-                animator.speed = 0f;
-
-                // espera um pouco congelado antes de sumir (usa disappearDelayAfterDeath)
-                yield return new WaitForSeconds(disappearDelayAfterDeath);
-            }
-            else // isPlayer
-            {
-                // Para o player: não congelar o animator — deixa correr normalmente até o fim (já esperámos)
-                // Opcional: mantém um pequeno delay antes de sumir para garantir feedback visual
-                yield return new WaitForSeconds(disappearDelayAfterDeath);
-            }
+        // --- Pós animação ---
+        if (isEnemy)
+        {
+            // Congela no último frame e espera um pouco antes de sumir
+            if (animator != null) animator.speed = 0f;
+            yield return new WaitForSeconds(disappearDelayAfterDeath);
+        }
+        else if (isPlayer)
+        {
+            // Player: terminou a animação, pode sumir imediatamente ou com pequeno delay
+            yield return new WaitForSeconds(disappearDelayAfterDeath);
         }
 
         // Desativa física e colisão
         if (rb != null) rb.isKinematic = true;
         if (charCollider != null) charCollider.enabled = false;
 
-        // Remove/Destrói o objeto (a escolha original era SetActive(false))
+        // Remove/Destrói o objeto
         gameObject.SetActive(false);
     }
+
 
 
     // Getters auxiliares para outros scripts saberem o estado
