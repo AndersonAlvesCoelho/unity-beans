@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3346069725584948296}
   - component: {fileID: 2312182873894732869}
   m_Layer: 7
-  m_Name: N1_EnemyRrangerDragon
+  m_Name: N1 Bite Dragon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

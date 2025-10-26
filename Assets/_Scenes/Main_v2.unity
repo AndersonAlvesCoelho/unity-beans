@@ -691,7 +691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3346069725584948296, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: attackRate
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3346069725584948296, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: chaseSpeed
@@ -703,7 +703,7 @@ PrefabInstance:
       objectReference: {fileID: 1440313016}
     - target: {fileID: 3346069725584948296, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: attackRange
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3346069725584948296, guid: 0a5ad98dd95e73d47bafb167374155cc, type: 3}
       propertyPath: patrolSpeed
