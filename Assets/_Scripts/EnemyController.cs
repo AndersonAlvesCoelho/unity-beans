@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void HandleIdleState() => rb.velocity = new Vector3(0, rb.velocity.y, 0);
+    void HandleIdleState() => rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
 
     void HandlePatrolState()
     {
@@ -135,7 +135,7 @@ public class EnemyController : MonoBehaviour
 
         if (distance < patrolPointThreshold)
         {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             if (waitCoroutine == null)
             {
                 // LOG: Início da espera na patrulha
@@ -148,14 +148,14 @@ public class EnemyController : MonoBehaviour
             Vector3 dir3D = targetPoint.position - transform.position;
             lookDirection = new Vector2(dir3D.x, dir3D.z).normalized;
             Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * patrolSpeed;
-            targetVelocity.y = rb.velocity.y;
-            rb.velocity = targetVelocity;
+            targetVelocity.y = rb.linearVelocity.y;
+            rb.linearVelocity = targetVelocity;
         }
     }
 
     void HandleFlip()
     {
-        float horizontalVel = rb.velocity.x;
+        float horizontalVel = rb.linearVelocity.x;
 
         if (Mathf.Abs(horizontalVel) > 0.01f)
             lastNonZeroHorizontal = horizontalVel;
@@ -194,7 +194,7 @@ public class EnemyController : MonoBehaviour
             // LOG: Transição de Chase para RangedAttack
             Debug.Log($"[{gameObject.name}] [CHASE] -> Em alcance Ranged (Dist: {distance:F2}). Mudando para RANGED_ATTACKING.");
             currentState = AIState.RangedAttacking;
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }   
         // MELEE 
@@ -202,18 +202,21 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log($"[{gameObject.name}] [CHASE] -> Em alcance Melee (Dist: {distance:F2}). Mudando para ATTACKING.");
             currentState = AIState.Attacking;
-            rb.velocity = new Vector3(0, rb.velocity.y, 0); // força parada antes de atacar
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0); // força parada antes de atacar
             return;
         }
 
         // Ainda longe: persegue normalmente
         Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * chaseSpeed;
         targetVelocity.y = rb.linearVelocity.y;
-        rb.velocity = targetVelocity;
+        rb.linearVelocity = targetVelocity;
     }
 
     void HandleAttackState()
     {
+
+        HealthUISingleton.Instance.funcaoexemplo();
+
         StopWaitingCoroutineIfNeeded();
         if (playerTransform == null) { GoBackToDefaultState(); return; }
 
@@ -228,7 +231,7 @@ public class EnemyController : MonoBehaviour
         }
 
         // mantém parado enquanto ataca
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
 
         if (Time.time >= nextAttackTime)
         {
@@ -251,8 +254,8 @@ public class EnemyController : MonoBehaviour
             Debug.Log($"[{gameObject.name}] [RANGED] -> Player muito perto (Dist: {distance:F2}). Recuando.");
             Vector3 dirAway = (transform.position - playerTransform.position).normalized;
             Vector3 targetVelocity = new Vector3(dirAway.x, 0, dirAway.y) * chaseSpeed;
-            targetVelocity.y = rb.velocity.y;
-            rb.velocity = targetVelocity;
+            targetVelocity.y = rb.linearVelocity.y;
+            rb.linearVelocity = targetVelocity;
         }
         else if (distance > rangedAttackDistance)
         {
@@ -269,14 +272,14 @@ public class EnemyController : MonoBehaviour
                 Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
                 lookDirection = new Vector2(dirToPlayer.x, dirToPlayer.z);
                 Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * chaseSpeed;
-                targetVelocity.y = rb.velocity.y;
-                rb.velocity = targetVelocity;
+                targetVelocity.y = rb.linearVelocity.y;
+                rb.linearVelocity = targetVelocity;
             }
             else
             {
                 // LOG: Ranged está parado e pronto para atirar
                 Debug.Log($"[{gameObject.name}] [RANGED] -> Em posição de ataque (Dist: {distance:F2}). Parado.");
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
 
                 if (Time.time >= nextAttackTime)
                 {
@@ -291,7 +294,7 @@ public class EnemyController : MonoBehaviour
 
     void UpdateAnimator()
     {
-        Vector3 horizontalVel = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        Vector3 horizontalVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         bool moving = horizontalVel.magnitude > 0.1f;
         animator.SetFloat("Speed", moving ? 1f : 0f);
         animator.SetFloat("Horizontal", lookDirection.x);
@@ -332,7 +335,7 @@ public class EnemyController : MonoBehaviour
         if (projRb != null)
         {
             if (projRb.isKinematic) projRb.isKinematic = false;
-            projRb.velocity = dirToPlayer * projectileSpeed;
+            projRb.linearVelocity = dirToPlayer * projectileSpeed;
         }
 
         Destroy(projectile, 5f);

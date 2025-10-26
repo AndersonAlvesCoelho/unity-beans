@@ -220,10 +220,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3418401547633355725, guid: 64654475039bba64880402b31acf0c66, type: 3}
-      propertyPath: playerLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 7510007811598551463, guid: 64654475039bba64880402b31acf0c66, type: 3}
       propertyPath: m_Name
       value: N1 Gary
@@ -278,6 +274,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 381596562512246432, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
   m_PrefabInstance: {fileID: 1376419403}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &381578954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8016751196414120247, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
+  m_PrefabInstance: {fileID: 1376419403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e505f4b6dec9f4d9141930692bfe16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
 --- !u!1 &729180826
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,14 +298,33 @@ GameObject:
   - component: {fileID: 729180831}
   - component: {fileID: 729180830}
   - component: {fileID: 729180832}
+  - component: {fileID: 729180827}
   - component: {fileID: 729180833}
   m_Layer: 6
-  m_Name: Plant
+  m_Name: Plant Bean
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &729180827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729180826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6b5a17c73b2d24e8cc36e752aae13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlantGrowthController
+  maxHealth: 6
+  invulnerableAfterGrowth: 1
+  enemyTag: Enemy
+  checkInterval: 0.25
+  animator: {fileID: 729180832}
+  playerHealth: {fileID: 381578954}
 --- !u!212 &729180828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -394,7 +420,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -414,7 +440,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -451,15 +477,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 729180826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7bc694ca4843048be210cb35c931ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 93e505f4b6dec9f4d9141930692bfe16, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlantGrowthController
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
   maxHealth: 6
-  invulnerableAfterGrowth: 1
-  fadeOutDurationOnDeath: 1.5
-  enemyTag: Enemy
-  checkInterval: 0.25
-  playerHealth: {fileID: 0}
+  disappearDelayAfterDeath: 0.8
+  knockbackForce: 8
+  knockbackDuration: 0.18
+  invulnerabilityTime: 0.6
+  blinkInterval: 0.08
 --- !u!1 &816121614
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,44 +656,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &959263898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1568860167293580165, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
-  m_PrefabInstance: {fileID: 1071736836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &959263900 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1068334925785603878, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
-  m_PrefabInstance: {fileID: 1071736836}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959263898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!114 &959263902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959263898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd68becc584756488487611d834354e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlantHealthUI
-  healthImage: {fileID: 959263900}
-  plantController: {fileID: 729180833}
-  healthSprites:
-  - {fileID: 21300000, guid: 21cb40707d5acf34fb8faac8dd018ea7, type: 3}
-  - {fileID: 21300000, guid: b64f8a19533668d41a5cc65bce3f38df, type: 3}
-  - {fileID: 21300000, guid: 60112ad88a9400945908487c37d747eb, type: 3}
-  - {fileID: 21300000, guid: 07db0c48697620f4a99304868cc232b4, type: 3}
-  - {fileID: 21300000, guid: eea55cd09978d164da2c712033ca0404, type: 3}
-  - {fileID: 21300000, guid: 8d9b7a1ab0c4d944dbe4d60c9ba8541e, type: 3}
-  - {fileID: 21300000, guid: 8bcedc60bb5e007488fa8662fd7f1290, type: 3}
 --- !u!1001 &1071736836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,17 +748,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8991622948644796116, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
+      propertyPath: targetHealthSystem
+      value: 
+      objectReference: {fileID: 381578954}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8007025882569256598, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1795286049}
     - targetCorrespondingSourceObject: {fileID: 1568860167293580165, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 959263902}
+      addedObject: {fileID: 1247353202}
   m_SourcePrefab: {fileID: 100100000, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
+--- !u!1 &1247353198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1568860167293580165, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
+  m_PrefabInstance: {fileID: 1071736836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1247353200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1068334925785603878, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
+  m_PrefabInstance: {fileID: 1071736836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247353198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &1247353202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247353198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ac20a12afc168479349866954a2f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHealthUI
+  healthImage: {fileID: 1247353200}
+  targetHealthSystem: {fileID: 729180833}
+  healthSprites: []
 --- !u!1001 &1376419403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,23 +1062,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &1795286044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8007025882569256598, guid: 7c5e796e24fd1794a8fa7d7a2d70e47b, type: 3}
-  m_PrefabInstance: {fileID: 1071736836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1795286049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795286044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ffac9dadae8284b91b30c2b968cf15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!212 &22360436121707141
 SpriteRenderer:
   m_ObjectHideFlags: 0
