@@ -1,0 +1,4053 @@
+fileFormatVersion: 2
+guid: 8c7b0955c05780842bb157aaf111f0f7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Feijao_FullHD__0
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 5781
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10590defe96f92b4caea225709a08078
+      internalID: 419064847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 5781
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fffb782a24b804db83739f30ed5902
+      internalID: -197143888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__2
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 5752
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c057100b5a4fb146a60456dc8b63df9
+      internalID: 2099148039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__3
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 5752
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d36e313464fd944b7fc18ae93fc0f9
+      internalID: 1136237782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__4
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 5705
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51bf376db8460a4ca169726e789899e
+      internalID: 1071419404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__5
+      rect:
+        serializedVersion: 2
+        x: 2104
+        y: 5705
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18625475a14bbf849958b29c2b705bf9
+      internalID: -277110216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__6
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 5687
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d78be6194a85749acfb7840d250fa1
+      internalID: 863069439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__7
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 5687
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1795c662f992a45a2a7bcd92f599e8
+      internalID: -221693425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__8
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da7d081e67cbbc439847c8535dd3975
+      internalID: -610185554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__9
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11394374c08686c4d8a67731e022d7d7
+      internalID: 874767070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__10
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224b931d444602f48a37ae9e9be0c131
+      internalID: 1188636751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__11
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06c918bfb42e164bb3c488bf6cf8192
+      internalID: -1586534493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__12
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe36569cbe3c80f41a97c3f4f16e3e2f
+      internalID: -1603427350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__13
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d98f4054a5971d499b9670be6ee3ee0
+      internalID: 380950007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__14
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4809d7f658586f48bb69efb9e7be882
+      internalID: 1189336805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__15
+      rect:
+        serializedVersion: 2
+        x: 2838
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569d29fde5542dd46a45f9e0600d4692
+      internalID: 1194772823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__16
+      rect:
+        serializedVersion: 2
+        x: 3226
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159a8f0ece7585e48807280c3d7df975
+      internalID: 1335988066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__17
+      rect:
+        serializedVersion: 2
+        x: 3614
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5469038e2984e1e4394b3f8bcf3fd188
+      internalID: 1296055528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__18
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d452e7a302bf4c740b0be201d30ee838
+      internalID: -633153924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__19
+      rect:
+        serializedVersion: 2
+        x: 4394
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526837c8e030586428e8a5b49d4a5416
+      internalID: -961008780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__20
+      rect:
+        serializedVersion: 2
+        x: 4784
+        y: 5590
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc66cb396e67eae46b03a8c26acd5de6
+      internalID: -1869977774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__21
+      rect:
+        serializedVersion: 2
+        x: 5170
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f53efe4f1714940b3868e3721aace0
+      internalID: 542392167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__22
+      rect:
+        serializedVersion: 2
+        x: 5560
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6883e63dd861e1f4e8d893e7673178f1
+      internalID: 1605657763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__23
+      rect:
+        serializedVersion: 2
+        x: 5949
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc12ca2f72dd024e91711440442c7db
+      internalID: 871340077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__24
+      rect:
+        serializedVersion: 2
+        x: 6339
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb08dc7b7dcf9704d975ea95b1607d80
+      internalID: 504434747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__25
+      rect:
+        serializedVersion: 2
+        x: 6729
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c378707d581d3d4681060338959d7cc
+      internalID: 551631214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__26
+      rect:
+        serializedVersion: 2
+        x: 7115
+        y: 5590
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3fc0dd794afdde40ade7cb8f02599bd
+      internalID: 1854331810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__27
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6b27ce64b72cd45a352a1b3a350a01
+      internalID: -446691089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__28
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4126632c7ec57304f841ca9ee2352dc7
+      internalID: 1274351814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__29
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc04fd63e4d0fa49ada4969c7de6f77
+      internalID: 1912966264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__30
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595d0ce0716be6843bb7b572c43c1444
+      internalID: 135872277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__31
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cd94c081dca52439d8878b5502495b
+      internalID: -2086121346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__32
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5b7a5246d5f5b42929e1e4b8c8fbb1
+      internalID: 446754548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__33
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09807fd360078a743952e6f2d90f7100
+      internalID: -1824792972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__34
+      rect:
+        serializedVersion: 2
+        x: 2838
+        y: 4795
+        width: 101
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1714fffcdd7fb954bb93e73ac8165a7d
+      internalID: 1731259155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__35
+      rect:
+        serializedVersion: 2
+        x: 3225
+        y: 4795
+        width: 103
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51498345dad7594eb23194337802fac
+      internalID: 1963407046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__36
+      rect:
+        serializedVersion: 2
+        x: 3614
+        y: 4795
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcb45e1050ff7e4485d66134e12b9a9
+      internalID: 667031757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__37
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 4795
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cdca6964fa63c645afa875a75e915b1
+      internalID: -739632743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__38
+      rect:
+        serializedVersion: 2
+        x: 4394
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d28574d67d4ff46a330ad7deb1b815
+      internalID: -388586945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__39
+      rect:
+        serializedVersion: 2
+        x: 4784
+        y: 4795
+        width: 100
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84db77c679a5814599130c29d8c3e49
+      internalID: -2090213496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__40
+      rect:
+        serializedVersion: 2
+        x: 5170
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b465c26a98e1868419ac4305c10f459a
+      internalID: 1523386255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__41
+      rect:
+        serializedVersion: 2
+        x: 5560
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ae2f987faf3824992615ccf7a6d1f1
+      internalID: -1262075854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__42
+      rect:
+        serializedVersion: 2
+        x: 5949
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cdec52c6df2a04280386508eddc7c9
+      internalID: 1469980853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__43
+      rect:
+        serializedVersion: 2
+        x: 6339
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9876b48787c338c46a46349d2b37bfbf
+      internalID: 940610417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__44
+      rect:
+        serializedVersion: 2
+        x: 6729
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90581de8a900d66478ffe522e42b3a9e
+      internalID: -453671654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__45
+      rect:
+        serializedVersion: 2
+        x: 7115
+        y: 4795
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809f328f4952a5146850d0dc31a71b6c
+      internalID: 1384206289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__46
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3f05a452875c949b90661978c0c90f
+      internalID: -685588719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__47
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cea930e897af7649b38cc06d28f1662
+      internalID: 1811132015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__48
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfec1f99aeeb7854c9b06890776db6f7
+      internalID: -1374251587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__49
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a77e4dd1ad0ea841b67ea374ca8fe3c
+      internalID: -1713742249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__50
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ceb57de134f8047b143b8c5e41f539
+      internalID: -491086216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__51
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a868a17d69630642aafae7b16bfd129
+      internalID: -1429195104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__52
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e884a4df4c5f54c8fb9ce3d4e26d26
+      internalID: 2109910139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__53
+      rect:
+        serializedVersion: 2
+        x: 2838
+        y: 4001
+        width: 101
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56af6e8e88f0ecc4da5d534882493170
+      internalID: -812167184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__54
+      rect:
+        serializedVersion: 2
+        x: 3225
+        y: 4001
+        width: 103
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38075f59e3e009419d846f9d00b726c
+      internalID: -2048923104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__55
+      rect:
+        serializedVersion: 2
+        x: 3614
+        y: 4001
+        width: 101
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73744eb3a3524b44a5e4d394bab4708
+      internalID: -1743594795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__56
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 4001
+        width: 101
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26813a40d5591d549ac532e5af2dc266
+      internalID: 648574416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__57
+      rect:
+        serializedVersion: 2
+        x: 4394
+        y: 4001
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c2dfa0190edab4897b7d8473acbf97
+      internalID: 894322799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__58
+      rect:
+        serializedVersion: 2
+        x: 4787
+        y: 4001
+        width: 98
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78cf143a5d7e0d429e643eb26a8f599
+      internalID: 40668260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__59
+      rect:
+        serializedVersion: 2
+        x: 5174
+        y: 4005
+        width: 100
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981d05b06425b4b478c6a141cbf0ef0d
+      internalID: -658628884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__60
+      rect:
+        serializedVersion: 2
+        x: 5556
+        y: 4002
+        width: 104
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bead222d3d29e4744a12757dbd761f48
+      internalID: 471598035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__61
+      rect:
+        serializedVersion: 2
+        x: 5949
+        y: 4001
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34f389e14d1e9d4c8ce9a38e3b58c9d
+      internalID: 1622615669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__62
+      rect:
+        serializedVersion: 2
+        x: 6343
+        y: 4001
+        width: 100
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f952fd83ad6977d408562d47326576c5
+      internalID: 1014030738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__63
+      rect:
+        serializedVersion: 2
+        x: 6732
+        y: 4005
+        width: 98
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2a4cf7da1b5434481d10eaa91dd49b
+      internalID: 56063458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__64
+      rect:
+        serializedVersion: 2
+        x: 7111
+        y: 4002
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d6585238a8aa34c90420ced8f8da67
+      internalID: 473756342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__65
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 3207
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf8b4d3cdd64284c9cf80d0c7d088f8
+      internalID: -269181227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__66
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 3207
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e715dc990a51f4b90424090d9063c6
+      internalID: 2001609136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__67
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 3211
+        width: 97
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d832abe5a38bf7246b992695df869b58
+      internalID: -1236170448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__68
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 3207
+        width: 104
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e42bcbf0f81fd4a9e244c7f563e41d
+      internalID: 1212809781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__69
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 3207
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c07713c40749254bb11bbbb687c8033
+      internalID: -1842050252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__70
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 3207
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79541c493484cf4a96e24b1d14a76ad
+      internalID: 1666851954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__71
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 3207
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8e9becfb5a7834291500ad1de69615
+      internalID: 217710557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__72
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 3211
+        width: 97
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3bb0eb9f7e49d42b770c6a7984f0df
+      internalID: -1242923921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__73
+      rect:
+        serializedVersion: 2
+        x: 3226
+        y: 3207
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e105a18c283c31488f7494796182539
+      internalID: 1296916014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__74
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 3204
+        width: 108
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494f0bca01ec94f4aaf0d64305b400a4
+      internalID: 291995910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__75
+      rect:
+        serializedVersion: 2
+        x: 3997
+        y: 3203
+        width: 114
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f4ffa10fc056d49a902d320174697b
+      internalID: -380785544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__76
+      rect:
+        serializedVersion: 2
+        x: 4383
+        y: 3203
+        width: 119
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0539f12b61619a4aaf31573ece91b59
+      internalID: -1255194947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__77
+      rect:
+        serializedVersion: 2
+        x: 4769
+        y: 3203
+        width: 123
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141bf2c84910eb041bf513ee5caa217c
+      internalID: 241853153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__78
+      rect:
+        serializedVersion: 2
+        x: 5156
+        y: 3203
+        width: 129
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136592927d41c3e49a1e333e8ca52a97
+      internalID: 861965383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__79
+      rect:
+        serializedVersion: 2
+        x: 5545
+        y: 3203
+        width: 130
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6907b7ce1d6327b4da142a493bc6cd47
+      internalID: -929183515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__80
+      rect:
+        serializedVersion: 2
+        x: 5931
+        y: 3203
+        width: 134
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e94df6394ccba428dd384aae0b1161
+      internalID: 1173743118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__81
+      rect:
+        serializedVersion: 2
+        x: 6318
+        y: 3200
+        width: 136
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3641c1e82966e78468fc172a1b1ee3ff
+      internalID: 75797018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__82
+      rect:
+        serializedVersion: 2
+        x: 6707
+        y: 3200
+        width: 137
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5442775d0d8f0ab4396a202da76a52d4
+      internalID: 1481058124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__84
+      rect:
+        serializedVersion: 2
+        x: 7096
+        y: 3200
+        width: 145
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce28fa5a80605d64b847528be63d828f
+      internalID: -1874453811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__85
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2467
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097e4a0f4e62cff46a409b4f33b1b3eb
+      internalID: 633757609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__86
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 2406
+        width: 119
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffae52a3a732e4b48b06b6e933dc4aea
+      internalID: -573820070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__87
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 2471
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254a7f094618de5408e093e4c43ac3fd
+      internalID: 68276658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__88
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2467
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83439d5c543658347878b51424ca948a
+      internalID: 1413681316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__89
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 2406
+        width: 111
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5111d4d58b15d43bea3ee5b6540896
+      internalID: -1083031971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__90
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 2442
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34256c06fa47354bb9ba47a3598da18
+      internalID: -1915809243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__91
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 2471
+        width: 51
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c604052db92d5341abf6a3f8199a11b
+      internalID: 2092596635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__92
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 2467
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad8162787c79424ab38d548d90f2ae4
+      internalID: -2099378837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__93
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 2406
+        width: 112
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d27352dc8ede604fb2edeffc91dfd9d
+      internalID: 1821043410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__94
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 2442
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab94668c45b78e84e9a3e2d7a0ebc5d6
+      internalID: 1225388474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__95
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2442
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09ce0bfee5515ff419f04a3fea9769b5
+      internalID: -426210859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__96
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 2456
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f19636bf3f07445acfd68c9fc6d8ba
+      internalID: 1117847006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__97
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 2396
+        width: 130
+        height: 323
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f685bf66d7e52934eac4387629a79d34
+      internalID: -1612505382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__98
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 2442
+        width: 72
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e3341fe691416419f6a4d6abeea401
+      internalID: -1032214926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__99
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 2396
+        width: 133
+        height: 323
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19befececd745c44499605a9d3689b15
+      internalID: -1450139400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__100
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2391
+        width: 173
+        height: 444
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69c825b6c7da9a4c9f0a0620abbb854
+      internalID: -1463651396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__101
+      rect:
+        serializedVersion: 2
+        x: 2438
+        y: 2391
+        width: 169
+        height: 444
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e441c978598533448988415d02042ae
+      internalID: 332059708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__102
+      rect:
+        serializedVersion: 2
+        x: 2802
+        y: 796
+        width: 242
+        height: 2079
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5031e0363bac9c3419eea334ce07d0c1
+      internalID: -1474555917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__103
+      rect:
+        serializedVersion: 2
+        x: 3190
+        y: 796
+        width: 244
+        height: 2079
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f5217846d8d5642b493b9a75c0b62f
+      internalID: -2025704454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__104
+      rect:
+        serializedVersion: 2
+        x: 3578
+        y: 796
+        width: 314
+        height: 2288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d681adedb133098498772a6749e0e0ea
+      internalID: 2004921619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__105
+      rect:
+        serializedVersion: 2
+        x: 3943
+        y: 796
+        width: 337
+        height: 2288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c690c9a5ff56344e87dbfb2f944c3f4
+      internalID: 34417917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__106
+      rect:
+        serializedVersion: 2
+        x: 4354
+        y: 796
+        width: 299
+        height: 2386
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef16bacd652da5f4cabcdc67a5ace602
+      internalID: -1276068874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__107
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 796
+        width: 296
+        height: 2386
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a3018663a38854984dbb43fdb2de5d
+      internalID: 57871109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__108
+      rect:
+        serializedVersion: 2
+        x: 5135
+        y: 2388
+        width: 226
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade5aab874186964db1976ea26fa0b0a
+      internalID: -881786082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__109
+      rect:
+        serializedVersion: 2
+        x: 5524
+        y: 2388
+        width: 223
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00f03556f0f1db47a984e7354c2ba2b
+      internalID: 1602022367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__110
+      rect:
+        serializedVersion: 2
+        x: 5913
+        y: 2388
+        width: 224
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea99afdcfb90af54e82ffb712c9a3f41
+      internalID: 194776541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__111
+      rect:
+        serializedVersion: 2
+        x: 6303
+        y: 2388
+        width: 224
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad29d3b79a9b73344af1de9771b07737
+      internalID: -1769083640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__112
+      rect:
+        serializedVersion: 2
+        x: 6693
+        y: 2388
+        width: 223
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b629f1b155e234ba7e2ee61b911e96
+      internalID: 1193865761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__113
+      rect:
+        serializedVersion: 2
+        x: 7079
+        y: 2388
+        width: 227
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57192e32f1463ef4e9a87685b75e7733
+      internalID: -250633453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__114
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 2417
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d09576142733e74ebd168b17ee376d5
+      internalID: -655937227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__115
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 2417
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43746a4c46d11e049bceba907d1d98ea
+      internalID: -412853390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__116
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 2413
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c273f1cc23ba5d4f9fc8d8c8e5df0ec
+      internalID: -1314025591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__117
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 2431
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149d639d3b88c1d4ab046486fbf98612
+      internalID: 958569107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__118
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 2413
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfdc8940f603a0c4a8ceb53041288350
+      internalID: -217858947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__119
+      rect:
+        serializedVersion: 2
+        x: 2391
+        y: 2431
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a70afc37ffab8894db23d4e2c65cc0b4
+      internalID: 1168572712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__120
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 2439
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0720f6d5e41cd7a46910adaac017eaf1
+      internalID: 328071868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__121
+      rect:
+        serializedVersion: 2
+        x: 2770
+        y: 2438
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c81ff7342029a4cbe9b176bc0357cf
+      internalID: 1104910919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__122
+      rect:
+        serializedVersion: 2
+        x: 3127
+        y: 2440
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab97ed1da5435343baa4bf0012e1edd
+      internalID: 1263275194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__123
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 2438
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd68733b75f3f34ebdb3834d719cb53
+      internalID: -61563814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__124
+      rect:
+        serializedVersion: 2
+        x: 3499
+        y: 2445
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5ceb0092f394b4cb195aa93584971d
+      internalID: -1775531505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__125
+      rect:
+        serializedVersion: 2
+        x: 3542
+        y: 2435
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be8e9d3ec7b52149ad2a2c1ac06ac18
+      internalID: -1179764350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__126
+      rect:
+        serializedVersion: 2
+        x: 3557
+        y: 2449
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03aabaa0ea3a23d409971c8c7fc35fbf
+      internalID: -244860631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__127
+      rect:
+        serializedVersion: 2
+        x: 3889
+        y: 2445
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b4c3a9c9563a0448c99a2f36f604ae
+      internalID: -1801626498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__128
+      rect:
+        serializedVersion: 2
+        x: 3932
+        y: 2435
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f75f496de3b384eafa9a2d2207b8a8
+      internalID: 873167683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__129
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 2400
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67231c7b724ccb440958fd4463740ef5
+      internalID: -813274457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__130
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 2417
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a0dada28ec3e94eb2abb96e47504ef
+      internalID: 576764363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__131
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 2401
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53167ef881a5e74ca50982e298d6b1c
+      internalID: 1284076165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__132
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 2417
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e779b52b22a384c830642738fdf164
+      internalID: -1863312208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__133
+      rect:
+        serializedVersion: 2
+        x: 2218
+        y: 2388
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928c9dab1a8b2fb41a4b87f0b6f70a67
+      internalID: 643124650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__134
+      rect:
+        serializedVersion: 2
+        x: 2607
+        y: 2388
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2ac1d9c827d5248956149e6dd79420
+      internalID: 813288156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__135
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 2406
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff88c97412cbcb4eac2787f796923dd
+      internalID: 2096560215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__136
+      rect:
+        serializedVersion: 2
+        x: 2756
+        y: 2420
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7e59758849c504e9ec83f14aa7f9f8
+      internalID: -1835328907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__137
+      rect:
+        serializedVersion: 2
+        x: 2781
+        y: 2402
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae06f3f6e89fa3428647693e6fa7b0a
+      internalID: 2118603785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__138
+      rect:
+        serializedVersion: 2
+        x: 3127
+        y: 2406
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d624c144338ea64eadf5932528d87a2
+      internalID: -1820921766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__139
+      rect:
+        serializedVersion: 2
+        x: 3169
+        y: 2402
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01af9260138959d49a1f0198c5937cb8
+      internalID: -287650520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__140
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 2392
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224954501cb911847be1ab1d6fc9a6cf
+      internalID: 648771486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__141
+      rect:
+        serializedVersion: 2
+        x: 2398
+        y: 2393
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df842b6c500a21740ac557d8c7b44c18
+      internalID: 1624434656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__142
+      rect:
+        serializedVersion: 2
+        x: 3499
+        y: 2402
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500ed10018361ce478fdea4b3f1b7d58
+      internalID: -209556120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__143
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 2392
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba87bd9c2c792843a37706fb2bc3798
+      internalID: 1430717830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__144
+      rect:
+        serializedVersion: 2
+        x: 3539
+        y: 2395
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74bf88f248d9bc04a9232734fc2b3996
+      internalID: -675093702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__145
+      rect:
+        serializedVersion: 2
+        x: 3889
+        y: 2402
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 084bf2246761a8e4f99596f8cfccc304
+      internalID: 143384593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__146
+      rect:
+        serializedVersion: 2
+        x: 3911
+        y: 2392
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f4622cca580474eae6a2077e16e91a
+      internalID: -100191070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__147
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1590
+        width: 223
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae5c2310fb43ff4a9756aef5c951285
+      internalID: -2140000454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__148
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 796
+        width: 227
+        height: 798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc9893e6c73c1345a8b6130036f63cc
+      internalID: -2077093076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__149
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1590
+        width: 224
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34f796e9e62f2d49bbbaa80b1dc88df
+      internalID: -898534674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__150
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 796
+        width: 227
+        height: 798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf7c059d40f1ce469792137f71bee8b
+      internalID: 232769126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__151
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 1590
+        width: 224
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95011ffd42980f4448844f4d5ddfa226
+      internalID: -1515700800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__152
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 796
+        width: 224
+        height: 798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e245c49f0b240ec4781e5aadf1ccc6a4
+      internalID: 752753546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__153
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1590
+        width: 224
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be006f3d166e84242ae13a436a7a0e77
+      internalID: 1581822882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__154
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 2
+        width: 224
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c5fc0479134a94ab6c339443584597
+      internalID: -2146517153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__155
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 2
+        width: 227
+        height: 2389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffd008f81dbc2849992aa85c68869d4
+      internalID: -1926888258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__156
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 2
+        width: 227
+        height: 2389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fcea35842ccc4a42be07f09fbdd3769
+      internalID: -1470415074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__157
+      rect:
+        serializedVersion: 2
+        x: 2413
+        y: 2
+        width: 223
+        height: 2389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b9c5bff3550db4ba119a2d282fcb75
+      internalID: -61924901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__158
+      rect:
+        serializedVersion: 2
+        x: 5135
+        y: 796
+        width: 226
+        height: 1595
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d251756a248404baa770e3de390c30
+      internalID: 1953728234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__159
+      rect:
+        serializedVersion: 2
+        x: 5524
+        y: 796
+        width: 227
+        height: 1595
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8fb07a61f1a914db372024a1f2ea7c
+      internalID: -881969634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__160
+      rect:
+        serializedVersion: 2
+        x: 5913
+        y: 796
+        width: 227
+        height: 1595
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf870778d7c7fe4b8a0977a8bc72f43
+      internalID: 1637421413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__161
+      rect:
+        serializedVersion: 2
+        x: 6303
+        y: 796
+        width: 224
+        height: 1595
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e1a31fa21e8ff409f3ef4e3f2f3971
+      internalID: 1723564665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__162
+      rect:
+        serializedVersion: 2
+        x: 6693
+        y: 796
+        width: 223
+        height: 1595
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443189de24d20db40a4b754e80906fee
+      internalID: -1230168178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__163
+      rect:
+        serializedVersion: 2
+        x: 7079
+        y: 796
+        width: 227
+        height: 1595
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db8b20090e48d6468a93d55b86bece2
+      internalID: 1213111385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__164
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 2
+        width: 223
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f63f67a5a161e941a93a17991f56a36
+      internalID: -1084509092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__165
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 2
+        width: 224
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f53ab9ca138a54abdd37376ded6155
+      internalID: -2099220937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__166
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 2
+        width: 224
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9186cd0b915cb1b4c8609639610aea5f
+      internalID: 1350119990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__167
+      rect:
+        serializedVersion: 2
+        x: 2802
+        y: 2
+        width: 224
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e779b55daf97b4f459262fd0f6811b76
+      internalID: -381797942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__168
+      rect:
+        serializedVersion: 2
+        x: 3191
+        y: 2
+        width: 225
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c62d1c6df511d4998ea581202facd0
+      internalID: -948858426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__169
+      rect:
+        serializedVersion: 2
+        x: 3578
+        y: 2
+        width: 227
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7656ca6f20108b945a7599314fb5bad7
+      internalID: -1940278092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__170
+      rect:
+        serializedVersion: 2
+        x: 3968
+        y: 2
+        width: 224
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2910a894439b7fe4c95314110e0b18c0
+      internalID: -167269006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Feijao_FullHD__171
+      rect:
+        serializedVersion: 2
+        x: 4358
+        y: 2
+        width: 223
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee1e1c213165cd4eb2a7a00b08f4df3
+      internalID: -629620768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 988163de64013ed42b4a913f026f85c8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Feijao_FullHD__0: 419064847
+      Feijao_FullHD__1: -197143888
+      Feijao_FullHD__10: 1188636751
+      Feijao_FullHD__100: -1463651396
+      Feijao_FullHD__101: 332059708
+      Feijao_FullHD__102: -1474555917
+      Feijao_FullHD__103: -2025704454
+      Feijao_FullHD__104: 2004921619
+      Feijao_FullHD__105: 34417917
+      Feijao_FullHD__106: -1276068874
+      Feijao_FullHD__107: 57871109
+      Feijao_FullHD__108: -881786082
+      Feijao_FullHD__109: 1602022367
+      Feijao_FullHD__11: -1586534493
+      Feijao_FullHD__110: 194776541
+      Feijao_FullHD__111: -1769083640
+      Feijao_FullHD__112: 1193865761
+      Feijao_FullHD__113: -250633453
+      Feijao_FullHD__114: -655937227
+      Feijao_FullHD__115: -412853390
+      Feijao_FullHD__116: -1314025591
+      Feijao_FullHD__117: 958569107
+      Feijao_FullHD__118: -217858947
+      Feijao_FullHD__119: 1168572712
+      Feijao_FullHD__12: -1603427350
+      Feijao_FullHD__120: 328071868
+      Feijao_FullHD__121: 1104910919
+      Feijao_FullHD__122: 1263275194
+      Feijao_FullHD__123: -61563814
+      Feijao_FullHD__124: -1775531505
+      Feijao_FullHD__125: -1179764350
+      Feijao_FullHD__126: -244860631
+      Feijao_FullHD__127: -1801626498
+      Feijao_FullHD__128: 873167683
+      Feijao_FullHD__129: -813274457
+      Feijao_FullHD__13: 380950007
+      Feijao_FullHD__130: 576764363
+      Feijao_FullHD__131: 1284076165
+      Feijao_FullHD__132: -1863312208
+      Feijao_FullHD__133: 643124650
+      Feijao_FullHD__134: 813288156
+      Feijao_FullHD__135: 2096560215
+      Feijao_FullHD__136: -1835328907
+      Feijao_FullHD__137: 2118603785
+      Feijao_FullHD__138: -1820921766
+      Feijao_FullHD__139: -287650520
+      Feijao_FullHD__14: 1189336805
+      Feijao_FullHD__140: 648771486
+      Feijao_FullHD__141: 1624434656
+      Feijao_FullHD__142: -209556120
+      Feijao_FullHD__143: 1430717830
+      Feijao_FullHD__144: -675093702
+      Feijao_FullHD__145: 143384593
+      Feijao_FullHD__146: -100191070
+      Feijao_FullHD__147: -2140000454
+      Feijao_FullHD__148: -2077093076
+      Feijao_FullHD__149: -898534674
+      Feijao_FullHD__15: 1194772823
+      Feijao_FullHD__150: 232769126
+      Feijao_FullHD__151: -1515700800
+      Feijao_FullHD__152: 752753546
+      Feijao_FullHD__153: 1581822882
+      Feijao_FullHD__154: -2146517153
+      Feijao_FullHD__155: -1926888258
+      Feijao_FullHD__156: -1470415074
+      Feijao_FullHD__157: -61924901
+      Feijao_FullHD__158: 1953728234
+      Feijao_FullHD__159: -881969634
+      Feijao_FullHD__16: 1335988066
+      Feijao_FullHD__160: 1637421413
+      Feijao_FullHD__161: 1723564665
+      Feijao_FullHD__162: -1230168178
+      Feijao_FullHD__163: 1213111385
+      Feijao_FullHD__164: -1084509092
+      Feijao_FullHD__165: -2099220937
+      Feijao_FullHD__166: 1350119990
+      Feijao_FullHD__167: -381797942
+      Feijao_FullHD__168: -948858426
+      Feijao_FullHD__169: -1940278092
+      Feijao_FullHD__17: 1296055528
+      Feijao_FullHD__170: -167269006
+      Feijao_FullHD__171: -629620768
+      Feijao_FullHD__18: -633153924
+      Feijao_FullHD__19: -961008780
+      Feijao_FullHD__2: 2099148039
+      Feijao_FullHD__20: -1869977774
+      Feijao_FullHD__21: 542392167
+      Feijao_FullHD__22: 1605657763
+      Feijao_FullHD__23: 871340077
+      Feijao_FullHD__24: 504434747
+      Feijao_FullHD__25: 551631214
+      Feijao_FullHD__26: 1854331810
+      Feijao_FullHD__27: -446691089
+      Feijao_FullHD__28: 1274351814
+      Feijao_FullHD__29: 1912966264
+      Feijao_FullHD__3: 1136237782
+      Feijao_FullHD__30: 135872277
+      Feijao_FullHD__31: -2086121346
+      Feijao_FullHD__32: 446754548
+      Feijao_FullHD__33: -1824792972
+      Feijao_FullHD__34: 1731259155
+      Feijao_FullHD__35: 1963407046
+      Feijao_FullHD__36: 667031757
+      Feijao_FullHD__37: -739632743
+      Feijao_FullHD__38: -388586945
+      Feijao_FullHD__39: -2090213496
+      Feijao_FullHD__4: 1071419404
+      Feijao_FullHD__40: 1523386255
+      Feijao_FullHD__41: -1262075854
+      Feijao_FullHD__42: 1469980853
+      Feijao_FullHD__43: 940610417
+      Feijao_FullHD__44: -453671654
+      Feijao_FullHD__45: 1384206289
+      Feijao_FullHD__46: -685588719
+      Feijao_FullHD__47: 1811132015
+      Feijao_FullHD__48: -1374251587
+      Feijao_FullHD__49: -1713742249
+      Feijao_FullHD__5: -277110216
+      Feijao_FullHD__50: -491086216
+      Feijao_FullHD__51: -1429195104
+      Feijao_FullHD__52: 2109910139
+      Feijao_FullHD__53: -812167184
+      Feijao_FullHD__54: -2048923104
+      Feijao_FullHD__55: -1743594795
+      Feijao_FullHD__56: 648574416
+      Feijao_FullHD__57: 894322799
+      Feijao_FullHD__58: 40668260
+      Feijao_FullHD__59: -658628884
+      Feijao_FullHD__6: 863069439
+      Feijao_FullHD__60: 471598035
+      Feijao_FullHD__61: 1622615669
+      Feijao_FullHD__62: 1014030738
+      Feijao_FullHD__63: 56063458
+      Feijao_FullHD__64: 473756342
+      Feijao_FullHD__65: -269181227
+      Feijao_FullHD__66: 2001609136
+      Feijao_FullHD__67: -1236170448
+      Feijao_FullHD__68: 1212809781
+      Feijao_FullHD__69: -1842050252
+      Feijao_FullHD__7: -221693425
+      Feijao_FullHD__70: 1666851954
+      Feijao_FullHD__71: 217710557
+      Feijao_FullHD__72: -1242923921
+      Feijao_FullHD__73: 1296916014
+      Feijao_FullHD__74: 291995910
+      Feijao_FullHD__75: -380785544
+      Feijao_FullHD__76: -1255194947
+      Feijao_FullHD__77: 241853153
+      Feijao_FullHD__78: 861965383
+      Feijao_FullHD__79: -929183515
+      Feijao_FullHD__8: -610185554
+      Feijao_FullHD__80: 1173743118
+      Feijao_FullHD__81: 75797018
+      Feijao_FullHD__82: 1481058124
+      Feijao_FullHD__83: -1300906680
+      Feijao_FullHD__84: -1874453811
+      Feijao_FullHD__85: 633757609
+      Feijao_FullHD__86: -573820070
+      Feijao_FullHD__87: 68276658
+      Feijao_FullHD__88: 1413681316
+      Feijao_FullHD__89: -1083031971
+      Feijao_FullHD__9: 874767070
+      Feijao_FullHD__90: -1915809243
+      Feijao_FullHD__91: 2092596635
+      Feijao_FullHD__92: -2099378837
+      Feijao_FullHD__93: 1821043410
+      Feijao_FullHD__94: 1225388474
+      Feijao_FullHD__95: -426210859
+      Feijao_FullHD__96: 1117847006
+      Feijao_FullHD__97: -1612505382
+      Feijao_FullHD__98: -1032214926
+      Feijao_FullHD__99: -1450139400
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
