@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
     public float attackRate = 3f;
     public Transform attackPoint;
     [Range(0.1f, 3f)] public float attackRange = 1f;
-    public float attackWindUpTime = 0.5f;
 
     [Header("Combate a Distância (Ranged)")]
     public GameObject projectilePrefab;
@@ -49,6 +48,7 @@ public class EnemyController : MonoBehaviour
     private float nextAttackTime = 0f;
     private int currentPatrolIndex = 0;
     private bool isWaitingAtPatrolPoint = false;
+    private Coroutine waitCoroutine = null;
 
     void Start()
     {
