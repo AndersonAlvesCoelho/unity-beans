@@ -148,20 +148,18 @@ public class EnemyController : MonoBehaviour
 
     void HandleFlip()
     {
-        // Pegamos velocidade horizontal
+        // Apenas se houver velocidade horizontal significativa
         float horizontalVel = rb.linearVelocity.x;
 
         if (Mathf.Abs(horizontalVel) > 0.01f)
-        {
             lastNonZeroHorizontal = horizontalVel;
-            spriteRenderer.flipX = (horizontalVel < 0); // se movendo para esquerda, flipX = true
-        }
-        else
-        {
-            // mantém última direção conhecida
-            spriteRenderer.flipX = (lastNonZeroHorizontal < 0);
-        }
+
+        // Determina a rotação Y
+        float targetYRotation = (lastNonZeroHorizontal < 0) ? 0f : 180f;
+        Vector3 currentEuler = transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(currentEuler.x, targetYRotation, currentEuler.z);
     }
+
 
     IEnumerator WaitAndMoveToNextPoint()
     {
