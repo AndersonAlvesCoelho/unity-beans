@@ -222,7 +222,6 @@ public class EnemyController : MonoBehaviour
         // se afastar mais do que o alcance + margem -> volta a perseguir
         if (distance > attackRange + 0.5f)
         {
-            // LOG: Transição de Attack para Chase (jogador fugiu)
             Debug.Log($"[{gameObject.name}] [ATTACK] -> Player saiu do alcance (Dist: {distance:F2}). Voltando para CHASING.");
             currentState = AIState.Chasing;
             return;
@@ -233,7 +232,6 @@ public class EnemyController : MonoBehaviour
 
         if (Time.time >= nextAttackTime)
         {
-            // LOG: Execução do ataque melee
             Debug.Log($"[{gameObject.name}] [ATTACK] -> Executando ataque MELEE.");
             PerformMeleeAttack();
             nextAttackTime = Time.time + attackRate;
