@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4720831763400480578}
   - component: {fileID: 822199198328401091}
   - component: {fileID: 5890205241776446663}
+  - component: {fileID: 7230784210846913873}
   m_Layer: 5
   m_Name: Canvas - healthbar
   m_TagString: Untagged
@@ -178,6 +179,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7230784210846913873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007025882569256598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ffac9dadae8284b91b30c2b968cf15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &8169007291518030213
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +202,6 @@ GameObject:
   - component: {fileID: 1310429012552969752}
   - component: {fileID: 8425518845162245534}
   - component: {fileID: 4080750598283026734}
-  - component: {fileID: 8991622948644796116}
   m_Layer: 5
   m_Name: PlayerHealthBar
   m_TagString: Untagged
@@ -254,25 +266,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8991622948644796116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8169007291518030213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ac20a12afc168479349866954a2f15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthUI
-  healthImage: {fileID: 4080750598283026734}
-  playerHealthSystem: {fileID: 0}
-  healthSprites:
-  - {fileID: 21300000, guid: 1fbee61a738487248b4bcf0bed08d69e, type: 3}
-  - {fileID: 21300000, guid: 8d8e85cb582d93f4b8ac3fb2adbf8168, type: 3}
-  - {fileID: 21300000, guid: c05ca35bb52ab64499ed3d809ec9ceb6, type: 3}
-  - {fileID: 21300000, guid: 7a072d975deefeb4abc98daa7fac4ba5, type: 3}
-  - {fileID: 21300000, guid: b03ffe12c8294ac40a1095a6cf13b39b, type: 3}
-  - {fileID: 21300000, guid: e0df20db88025884fa00767dd3a09a69, type: 3}
-  - {fileID: 21300000, guid: 5b6dd68453311a54fbf7a641b8b7b9a6, type: 3}

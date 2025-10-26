@@ -170,7 +170,7 @@ public class PlayerController3D : MonoBehaviour
         animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.1f);
-        audioSource[0].Play();
+        // audioSource[0].Play();
         PerformDamageCheck();
 
         yield return new WaitForSeconds(attackAnimationDuration);

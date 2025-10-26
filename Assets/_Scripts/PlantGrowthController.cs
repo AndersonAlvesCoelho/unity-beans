@@ -1,144 +1,126 @@
+// PlantGrowthController.cs (Refatorado para usar HealthSystem)
+
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Controla a lógica de CRESCIMENTO da planta e REAGE à sua própria morte.
+/// DELEGA toda a lógica de vida/dano/morte para o HealthSystem.
+/// </summary>
+[RequireComponent(typeof(HealthSystem))] // Garante que o HealthSystem está presente
 public class PlantGrowthController : MonoBehaviour
 {
-    [Header("Vida da Planta")]
-    [SerializeField] private int maxHealth = 6;
-    [SerializeField] private bool invulnerableAfterGrowth = true;
-    [SerializeField] private float fadeOutDurationOnDeath = 1.5f;
-
-    [Header("Lógica de Crescimento")]
+    [Header("Configuração de Crescimento")]
+    [Tooltip("Vida máxima que a planta terá. Este valor será passado para o HealthSystem.")]
+    [SerializeField] private float maxHealth = 6f;
     [SerializeField] private string enemyTag = "Enemy";
     [SerializeField] private float checkInterval = 0.25f;
 
+    [Header("Comportamento Pós-Crescimento")]
+    [SerializeField] private bool invulnerableAfterGrowth = true;
+
     [Header("Referências")]
-    [SerializeField] private HealthSystem playerHealth; // Para matar o Player
+    [SerializeField] private HealthSystem playerHealth; // Referência ao HealthSystem do Player
 
     // Componentes Internos
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Collider plantCollider;
+    private HealthSystem healthSystem; // Referência ao HealthSystem DESTA planta
 
-    // Estado
-    public int CurrentHealth { get; private set; } // Propriedade pública para UI ler
+    // Estados
     private bool isGrown = false;
-    private bool isDead = false;
+    private bool isCheckingEnemies = false;
+    private bool playerKillTriggered = false; // Garante que só matamos o player uma vez
+
+    // Propriedades públicas para a UI ler (opcional, mas bom)
+    public int CurrentHealth => healthSystem != null ? Mathf.CeilToInt(healthSystem.CurrentHealth) : 0;
+    public int MaxHealth => Mathf.CeilToInt(maxHealth);
 
     private void Awake()
     {
-        CurrentHealth = maxHealth;
-
+        // Pega componentes locais
         animator = GetComponentInChildren<Animator>(true);
-        spriteRenderer = GetComponent<SpriteRenderer>();
         plantCollider = GetComponent<Collider>();
+        healthSystem = GetComponent<HealthSystem>(); // Pega o HealthSystem neste objeto
 
-        if (!playerHealth)
-        {
-            var playerGO = GameObject.FindWithTag("Player");
-            if (playerGO) playerHealth = playerGO.GetComponent<HealthSystem>();
-        }
+        // --- DELEGAÇÃO ---
+        // Configura o HealthSystem com os valores desta planta
+        healthSystem.maxHealth = this.maxHealth;
+        // healthSystem.CurrentHealth já é setado no Awake do HealthSystem
     }
 
     private void OnEnable()
     {
-        if (!isGrown && !isDead)
+        // Inicia monitoramento dos inimigos se aplicável
+        if (!isGrown && !isCheckingEnemies && !healthSystem.IsDead())
         {
             StartCoroutine(WatchEnemiesCoroutine());
         }
     }
 
+    // Update é usado para checar o estado de morte
+    private void Update()
+    {
+        // --- REAÇÃO À MORTE ---
+        // Se o HealthSystem disser que estamos mortos, e ainda não matamos o player...
+        if (healthSystem.IsDead() && !playerKillTriggered)
+        {
+            playerKillTriggered = true; // Marca como feito
+            KillPlayerViaHealthSystem(); // Executa a ação única de morte da planta
+        }
+    }
+
     private IEnumerator WatchEnemiesCoroutine()
     {
-        yield return null; 
+        isCheckingEnemies = true;
+        yield return null; // Espera 1 frame
 
-        while (!isGrown && !isDead)
+        while (!isGrown && !healthSystem.IsDead()) // Checa se a planta morreu
         {
             if (GameObject.FindGameObjectsWithTag(enemyTag).Length == 0)
             {
-                HandleAllEnemiesCleared();
+                GrowPlant();
                 yield break;
             }
             yield return new WaitForSeconds(checkInterval);
         }
+        isCheckingEnemies = false;
     }
 
-    private void HandleAllEnemiesCleared()
+    private void GrowPlant()
     {
-        if (isGrown || isDead) return;
+        if (isGrown || healthSystem.IsDead()) return;
         isGrown = true;
-        Debug.Log("Planta cresceu!");
+        Debug.Log("🌱 Planta cresceu!");
 
-        if (animator) animator.SetTrigger("Grow"); // Dispara a animação "isGrow" (deve ser "Grow")
+        if (animator) animator.SetTrigger("Grow"); // Dispara animação de crescimento
 
         if (invulnerableAfterGrowth)
         {
-            if (plantCollider != null) plantCollider.enabled = false;
+            // Desativa o colisor principal da planta
+            if (plantCollider) plantCollider.enabled = false;
         }
     }
 
-    // Função pública para a planta receber dano
-    public void DamagePlant(int amount = 1)
+    /// <summary>
+    /// Função pública para inimigos causarem dano.
+    /// Agora ela APENAS repassa a chamada para o HealthSystem.
+    /// </summary>
+    public void DamagePlant(float amount = 1f, Transform attacker = null)
     {
-        if ((isGrown && invulnerableAfterGrowth) || isDead) return;
+        if ((isGrown && invulnerableAfterGrowth) || healthSystem.IsDead()) return;
 
-        CurrentHealth -= Mathf.Max(1, amount);
-        Debug.Log($"Planta tomou {amount} de dano. Vida: {CurrentHealth}/{maxHealth}");
-
-        // Verifica se morreu
-        if (CurrentHealth <= 0 && !isDead)
-        {
-            CurrentHealth = 0;
-            StartCoroutine(HandlePlantDeath());
-        }
+        // --- DELEGAÇÃO ---
+        healthSystem.TakeDamage(amount, attacker);
     }
 
-    // Corrotina para Morte da Planta
-    private IEnumerator HandlePlantDeath()
-    {
-        isDead = true;
-        Debug.Log("Planta morreu.");
-
-        // Toca a animação "Die"
-        if (animator != null)
-        {
-             bool hasDieTrigger = false;
-             foreach (var param in animator.parameters) if (param.name == "Die") hasDieTrigger = true;
-             if (hasDieTrigger) animator.SetTrigger("Die");
-        }
-        
-        // Mata o Player
-        KillPlayerViaHealthSystem();
-
-        // Desativa o colisor
-        if (plantCollider != null) plantCollider.enabled = false;
-
-        // Inicia o Fade Out
-        if (spriteRenderer != null)
-        {
-            float timer = 0f;
-            Color startColor = spriteRenderer.color;
-            while (timer < fadeOutDurationOnDeath)
-            {
-                timer += Time.deltaTime;
-                float alpha = Mathf.Lerp(startColor.a, 0f, timer / fadeOutDurationOnDeath);
-                spriteRenderer.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
-                yield return null;
-            }
-        }
-        else
-        {
-            yield return new WaitForSeconds(fadeOutDurationOnDeath);
-        }
-
-        // Desativa o GameObject
-        gameObject.SetActive(false);
-    }
-
-    // Lógica original para matar o player
+    /// <summary>
+    /// Ação única da planta: matar o jogador quando ela morre.
+    /// Esta função é chamada pelo Update() quando healthSystem.IsDead() se torna true.
+    /// </summary>
     private void KillPlayerViaHealthSystem()
     {
-        if (!playerHealth)
+        if (playerHealth == null) // Tenta encontrar de novo por segurança
         {
             var playerGO = GameObject.FindWithTag("Player");
             if (playerGO) playerHealth = playerGO.GetComponent<HealthSystem>();
@@ -146,14 +128,10 @@ public class PlantGrowthController : MonoBehaviour
 
         if (playerHealth != null && !playerHealth.IsDead())
         {
-            float fatalDamage = Mathf.Max(1f, playerHealth.CurrentHealth);
+            // Dano fatal = vida atual do player
+            float fatalDamage = Mathf.Max(1f, playerHealth.CurrentHealth); 
             playerHealth.TakeDamage(fatalDamage, attackerTransform: transform);
+            Debug.Log($"Planta morreu e levou o Player junto!");
         }
-    }
-    
-    // Getter público para a vida máxima (para UI)
-    public int GetMaxHealth()
-    {
-        return maxHealth;
     }
 }

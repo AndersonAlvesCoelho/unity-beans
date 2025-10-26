@@ -214,14 +214,14 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   patrolSpeed: 0
   chaseSpeed: 10
-  stoppingDistance: 5
+  stoppingDistance: 25
   patrolPoints: []
   patrolWaitTime: 0
   patrolPointThreshold: 0
   attackDamage: 2
   attackRate: 1
   attackPoint: {fileID: 1971236730799418528}
-  attackRange: 20
+  attackRange: 25
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
   rangedAttackDistance: 0

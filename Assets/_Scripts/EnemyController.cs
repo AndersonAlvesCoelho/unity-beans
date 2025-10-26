@@ -216,8 +216,6 @@ void HandleChaseState()
     void HandleAttackState()
     {
 
-        HealthUISingleton.Instance.funcaoexemplo();
-
         StopWaitingCoroutineIfNeeded();
         if (playerTransform == null) { GoBackToDefaultState(); return; }
 
