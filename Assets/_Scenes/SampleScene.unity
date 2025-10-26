@@ -257,6 +257,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240076762}
   m_CullTransparentMesh: 1
+--- !u!1 &288707859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2775611680908863738, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
+  m_PrefabInstance: {fileID: 4899765989845832883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +564,78 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &452722861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452722863}
+  - component: {fileID: 452722862}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &452722862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452722861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6785568f6f419894d930189d0c13be94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomSpawnerEnemy
+  waves:
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  - waveName: fisrtWave
+    numberOfEnemies: 3
+    enemyPrefabs:
+    - {fileID: 288707859}
+    spawnInterval: 0.5
+  timeBetweenWaves: 5
+  initialSpawnDelay: 3
+  mapCenter: {x: 0, y: 0}
+  mapSize: {x: 40, y: 40}
+  spawnEdgeMargin: 2
+  spawnHeightY: 0.5
+--- !u!4 &452722863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452722861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508053668
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775611680908863738, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: EnemyRranger
       objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: enemyType
@@ -780,12 +857,24 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
+      propertyPath: projectileSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 1155821616104553372, guid: 15330257406e1f1448d2046389c547c0, type: 3}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
+      propertyPath: rangedAttackRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: rangedAttackDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
+      propertyPath: rangedStoppingDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7012443573361121999, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_IsKinematic
@@ -1048,7 +1137,7 @@ Transform:
   m_GameObject: {fileID: 1449746452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.6}
+  m_LocalPosition: {x: 0, y: 1, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1192,85 +1281,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 67256758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1784873876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1784873879}
-  - component: {fileID: 1784873878}
-  - component: {fileID: 1784873877}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1784873877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784873876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &1784873878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784873876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1784873879
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784873876}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1882725878264876481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1335,6 +1345,14 @@ PrefabInstance:
       propertyPath: attackRange
       value: 2.498
       objectReference: {fileID: 0}
+    - target: {fileID: 486660835685476563, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
+      propertyPath: sprintForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 486660835685476563, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
+      propertyPath: sprintDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3537570925694072693, guid: 650cfb4939334464c9cd740c0d7d726a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1374,7 +1392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113438936482358833, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.9
+      value: -2.79
       objectReference: {fileID: 0}
     - target: {fileID: 113438936482358833, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1414,12 +1432,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775611680908863738, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: EnemyStationary
       objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 359435506}
+    - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
+      propertyPath: stoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 7
@@ -1483,7 +1505,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113438936482358833, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 15.69
       objectReference: {fileID: 0}
     - target: {fileID: 113438936482358833, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1523,7 +1545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775611680908863738, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Stationary
       objectReference: {fileID: 0}
     - target: {fileID: 6155651506409259886, guid: 53c3c08d32829e34e9c8e944ebb26ba7, type: 3}
       propertyPath: attackDamage
@@ -1557,4 +1579,4 @@ SceneRoots:
   - {fileID: 67256758}
   - {fileID: 4899765989845832883}
   - {fileID: 623084861}
-  - {fileID: 1784873879}
+  - {fileID: 452722863}
