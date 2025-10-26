@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 260590054122774641}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -1.5}
+  m_LocalPosition: {x: -3.92, y: 2.14, z: 0.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 1550767647691251633}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.31, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 2173139498461112332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalPosition: {x: -5.48, y: 2.21, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -147,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 16.51}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 395258539431612298}
@@ -281,7 +281,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9, y: 3.93, z: 0.2}
+  m_Size: {x: 7, y: 3.94, z: 0.2}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &3346069725584948296
 MonoBehaviour:
@@ -306,7 +306,7 @@ MonoBehaviour:
   attackDamage: 2
   attackRate: 1.5
   attackPoint: {fileID: 4701525800778322631}
-  attackRange: 3
+  attackRange: 10
   projectilePrefab: {fileID: 1155821616104553372, guid: 15330257406e1f1448d2046389c547c0, type: 3}
   firePoint: {fileID: 4548043107817830354}
   rangedAttackDistance: 15
