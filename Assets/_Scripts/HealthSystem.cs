@@ -71,15 +71,17 @@ public class HealthSystem : MonoBehaviour
     // ------------------------------
     private void ApplyKnockback(Transform attacker)
     {
-        if (rb == null || attacker == null || knockbackForce <= 0f || rb.isKinematic)
-            return;
+        if (rb != null && attackerTransform != null && knockbackForce > 0f && !rb.isKinematic)
+        {
+            Vector3 knockbackDirection = (transform.position - attackerTransform.position);
+            knockbackDirection.y = 0;
+            knockbackDirection.Normalize();
 
-        Vector3 knockbackDirection = (transform.position - attacker.position);
-        knockbackDirection.y = 0;
-        knockbackDirection.Normalize();
+            rb.velocity = Vector3.zero; // limpa velocidade atual
+            rb.AddForce(knockbackDirection * knockbackForce, ForceMode.VelocityChange);
 
-        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
-        rb.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+            Debug.Log($"Knockback aplicado em {gameObject.name}, direção: {knockbackDirection}");
+        }
     }
 
     // ------------------------------
@@ -134,7 +136,7 @@ public class HealthSystem : MonoBehaviour
             enemyController.enabled = false;
 
         if (rb != null)
-            rb.linearVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
 
         // Piscar até sumir
         if (spriteRenderer != null)
