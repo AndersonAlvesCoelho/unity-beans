@@ -227,8 +227,6 @@ public class HealthSystem : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-
-
     // Getters auxiliares para outros scripts saberem o estado
     public bool IsDead() => isDead;
     public bool IsInvulnerable() => isInvulnerable;

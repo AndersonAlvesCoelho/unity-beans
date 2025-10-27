@@ -31,6 +31,8 @@ public class RandomSpawnerEnemy : MonoBehaviour
     private bool isSpawningWave = false;
     private bool allWavesCompleted = false;
 
+    public PlantGrowthController plant;
+
     void Start()
     {
         if (waves == null || waves.Count == 0) { Debug.LogError("Spawner: Nenhuma onda definida!"); enabled = false; return; }
@@ -159,6 +161,13 @@ public class RandomSpawnerEnemy : MonoBehaviour
             activeEnemies.Remove(deadEnemy);
             Debug.Log($"Inimigo removido. Restantes na onda: {activeEnemies.Count}");
             // A lógica de iniciar a próxima onda está no WaveController
+
+            if(activeEnemies.Count == 0 && plant != null)
+            {
+                plant.GrowPlant(); // Ativa animação e lógica de crescimento
+            }
         }
+
+      
     }
 }
