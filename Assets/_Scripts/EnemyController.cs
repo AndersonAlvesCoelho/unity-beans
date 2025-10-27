@@ -86,7 +86,7 @@ public class EnemyController : MonoBehaviour
     {
         if (playerLayer == 0) Debug.LogWarning(gameObject.name + ": Player Layer não configurada!");
         if (enemyType != BehaviorType.Ranged && attackPoint == null)
-            Debug.LogError(gameObject.name + " (" + enemyType + "): AttackPoint não atribuído!");
+
         if (enemyType == BehaviorType.Ranged)
         {
             if (projectilePrefab == null) Debug.LogError(gameObject.name + " (Ranged): Projectile Prefab não definido!");
@@ -139,7 +139,6 @@ public class EnemyController : MonoBehaviour
             if (waitCoroutine == null)
             {
                 // LOG: Início da espera na patrulha
-                Debug.Log($"[{gameObject.name}] Chegou ao ponto de patrulha {currentPatrolIndex}. Iniciando espera.");
                 waitCoroutine = StartCoroutine(WaitAndMoveToNextPoint());
             }
         }
@@ -174,7 +173,6 @@ public class EnemyController : MonoBehaviour
         waitCoroutine = null;
 
         // LOG: Fim da espera, movendo para o próximo ponto
-        Debug.Log($"[{gameObject.name}] Espera terminada. Movendo para ponto {currentPatrolIndex}.");
     }
 void HandleChaseState()
     {
@@ -186,14 +184,11 @@ void HandleChaseState()
         // Calcula a distância no plano XZ (ignora Y) para comparações mais estáveis se houver diferença de altura
         float planarDistance = Vector3.Distance(transform.position, playerTransform.position);
 
-        // --- LOG DETALHADO ---
-        Debug.Log($"[{gameObject.name}] Estado: Chasing | Dist Total: {distance:F2} | Dist Planar: {planarDistance:F2} | Stopping (M): {stoppingDistance} | Attack (R): {rangedAttackDistance}");
 
         // --- Decisão para Atirador (Ranged) ---
         if (enemyType == BehaviorType.Ranged)
         {
             // LOG: Transição de Chase para RangedAttack
-            Debug.Log($"[{gameObject.name}] [CHASE] -> Em alcance Ranged (Dist: {distance:F2}). Mudando para RANGED_ATTACKING.");
             currentState = AIState.RangedAttacking;
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
@@ -201,7 +196,6 @@ void HandleChaseState()
         // MELEE 
         else if (enemyType != BehaviorType.Ranged && distance <= Mathf.Max(stoppingDistance, attackRange))
         {
-            Debug.Log($"[{gameObject.name}] [CHASE] -> Em alcance Melee (Dist: {distance:F2}). Mudando para ATTACKING.");
             currentState = AIState.Attacking;
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0); // força parada antes de atacar
             return;
@@ -225,7 +219,6 @@ void HandleChaseState()
         if (distance > attackRange + 0.5f)
         {
             // LOG: Transição de Attack para Chase (jogador fugiu)
-            Debug.Log($"[{gameObject.name}] [ATTACK] -> Player saiu do alcance (Dist: {distance:F2}). Voltando para CHASING.");
             currentState = AIState.Chasing;
             return;
         }
@@ -236,7 +229,6 @@ void HandleChaseState()
         if (Time.time >= nextAttackTime)
         {
             // LOG: Execução do ataque melee
-            Debug.Log($"[{gameObject.name}] [ATTACK] -> Executando ataque MELEE.");
             PerformMeleeAttack();
             nextAttackTime = Time.time + attackRate;
         }
@@ -252,7 +244,6 @@ void HandleChaseState()
         if (distance < retreatDistance)
         {
             // LOG: Ranged está recuando
-            Debug.Log($"[{gameObject.name}] [RANGED] -> Player muito perto (Dist: {distance:F2}). Recuando.");
             Vector3 dirAway = (transform.position - playerTransform.position).normalized;
             Vector3 targetVelocity = new Vector3(dirAway.x, 0, dirAway.y) * chaseSpeed;
             targetVelocity.y = rb.linearVelocity.y;
@@ -261,7 +252,6 @@ void HandleChaseState()
         else if (distance > rangedAttackDistance)
         {
             // LOG: Transição de RangedAttack para Chase (jogador muito longe)
-            Debug.Log($"[{gameObject.name}] [RANGED] -> Player saiu do alcance máximo (Dist: {distance:F2}). Voltando para CHASING.");
             currentState = AIState.Chasing;
         }
         else
@@ -269,7 +259,6 @@ void HandleChaseState()
             if (distance > rangedStoppingDistance)
             {
                 // LOG: Ranged está se aproximando (dentro do alcance, mas fora do stopping distance)
-                Debug.Log($"[{gameObject.name}] [RANGED] -> Em alcance, aproximando para 'stopping distance' (Dist: {distance:F2}).");
                 Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
                 lookDirection = new Vector2(dirToPlayer.x, dirToPlayer.z);
                 Vector3 targetVelocity = new Vector3(lookDirection.x, 0, lookDirection.y) * chaseSpeed;
@@ -279,13 +268,11 @@ void HandleChaseState()
             else
             {
                 // LOG: Ranged está parado e pronto para atirar
-                Debug.Log($"[{gameObject.name}] [RANGED] -> Em posição de ataque (Dist: {distance:F2}). Parado.");
                 rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
 
                 if (Time.time >= nextAttackTime)
                 {
                     // LOG: Execução do ataque ranged
-                    Debug.Log($"[{gameObject.name}] [RANGED] -> Executando ataque RANGED.");
                     FireProjectile();
                     nextAttackTime = Time.time + rangedAttackRate;
                 }
@@ -313,7 +300,6 @@ void HandleChaseState()
         foreach (Collider playerCollider in hitPlayers)
         {
             // LOG: Confirmação de acerto melee
-            Debug.Log($"[{gameObject.name}] Ataque Melee ACERTOU: {playerCollider.name}");
             HealthSystem playerHealth = playerCollider.GetComponent<HealthSystem>();
             if (playerHealth != null) playerHealth.TakeDamage(attackDamage);
         }
@@ -325,7 +311,6 @@ void HandleChaseState()
         animator.SetTrigger("Attack"); // Ranged attack (cuspir)
 
         // LOG: Disparo de projétil
-        Debug.Log($"[{gameObject.name}] Projétil disparado de {firePoint.position}!");
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Vector3 dirToPlayer = (playerTransform.position - firePoint.position);
@@ -347,7 +332,6 @@ void HandleChaseState()
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
             // LOG: Detecção inicial do player
-            Debug.Log($"[{gameObject.name}] PLAYER DETECTADO (OnTriggerEnter por {other.name}). Mudando para CHASING.");
             StopWaitingCoroutineIfNeeded();
             playerTransform = other.transform;
             currentState = AIState.Chasing;
@@ -361,7 +345,6 @@ void HandleChaseState()
             if (other.transform == playerTransform)
             {
                 // LOG: Perda do player pelo trigger
-                Debug.Log($"[{gameObject.name}] PLAYER PERDIDO (OnTriggerExit por {other.name}). Voltando ao estado padrão.");
                 // perda imediata do alvo removida — volte ao default com tolerância
                 playerTransform = null;
                 GoBackToDefaultState();
@@ -375,7 +358,6 @@ void HandleChaseState()
                                 ? AIState.Patrolling : AIState.Idle;
         
         // LOG: Confirmação do estado de retorno
-        Debug.Log($"[{gameObject.name}] GoBackToDefaultState. Novo estado: {newState}");
         currentState = newState;
     }
 
@@ -384,7 +366,6 @@ void HandleChaseState()
         if (waitCoroutine != null)
         {
             // LOG: Interrupção da coroutine de espera (provavelmente por ver o player)
-            Debug.Log($"[{gameObject.name}] Coroutine de espera (Patrulha) interrompida.");
             StopCoroutine(waitCoroutine);
             waitCoroutine = null;
             isWaitingAtPatrolPoint = false;

@@ -219,7 +219,7 @@ MonoBehaviour:
   patrolWaitTime: 0
   patrolPointThreshold: 0
   attackDamage: 2
-  attackRate: 1
+  attackRate: 2
   attackPoint: {fileID: 1971236730799418528}
   attackRange: 25
   projectilePrefab: {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e505f4b6dec9f4d9141930692bfe16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
-  maxHealth: 5
+  maxHealth: 2.5
   disappearDelayAfterDeath: 1
   knockbackForce: 8
   knockbackDuration: 0.18
