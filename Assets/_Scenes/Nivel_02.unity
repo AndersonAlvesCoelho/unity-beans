@@ -1478,7 +1478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantGrowthController
   growthAnimationDuration: 2
-  nextSceneName: Nivel 02
+  nextSceneName: Menu
 --- !u!114 &662474778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2708,7 +2708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: timeBetweenWaves
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: waves.Array.size
@@ -2736,34 +2736,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: waves.Array.data[0].numberOfEnemies
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: waves.Array.data[1].numberOfEnemies
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: waves.Array.data[0].enemyPrefabs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: waves.Array.data[1].enemyPrefabs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: 'waves.Array.data[0].enemyPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 4769739406998023284, guid: 00cbc0dfc2538ca44953a93984da7109, type: 3}
+      objectReference: {fileID: 4769739406998023284, guid: ca1739d435f00fb498e09b8964eb4607, type: 3}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: 'waves.Array.data[0].enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7510007811598551463, guid: 8ce6beac1fb493240a0dc01bd7346422, type: 3}
+    - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
+      propertyPath: 'waves.Array.data[0].enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 7510007811598551463, guid: 64654475039bba64880402b31acf0c66, type: 3}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: 'waves.Array.data[1].enemyPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 4769739406998023284, guid: 00cbc0dfc2538ca44953a93984da7109, type: 3}
+      objectReference: {fileID: 4769739406998023284, guid: ca1739d435f00fb498e09b8964eb4607, type: 3}
     - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
       propertyPath: 'waves.Array.data[1].enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7510007811598551463, guid: 8ce6beac1fb493240a0dc01bd7346422, type: 3}
+    - target: {fileID: 1911028691492319754, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}
+      propertyPath: 'waves.Array.data[1].enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 7510007811598551463, guid: 64654475039bba64880402b31acf0c66, type: 3}
     - target: {fileID: 4001145268878361762, guid: bac5ce5c408b8704f8b9047e1dfb7555, type: 3}

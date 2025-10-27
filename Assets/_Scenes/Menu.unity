@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba39d6741a68284b92a02a33609a2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menumanager
-  nomeDoLevelDeJogo: Level 1
+  nomeDoLevelDeJogo: Nivel_01
   painelMenuInicial: {fileID: 1910330907}
   painelOpcoes: {fileID: 0}
 --- !u!4 &2137291967
